@@ -4,31 +4,32 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import ContactForm from '@/components/forms/ContactForm';
 import { fadeInUp, staggerChildren } from '@/lib/animations';
+import content from '@/data/content.json';
 
 export default function Contact() {
   const socialLinks = [
     {
       name: 'GitHub',
       icon: Github,
-      href: 'https://github.com/yourusername',
+      href: content.social.github,
       label: 'View my GitHub profile',
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      href: 'https://linkedin.com/in/yourusername',
+      href: content.social.linkedin,
       label: 'Connect on LinkedIn',
     },
     {
       name: 'Twitter',
       icon: Twitter,
-      href: 'https://twitter.com/yourusername',
+      href: content.social.twitter,
       label: 'Follow on Twitter',
     },
     {
       name: 'Email',
       icon: Mail,
-      href: 'mailto:your@email.com',
+      href: `mailto:${content.social.email}`,
       label: 'Send an email',
     },
   ];
@@ -94,11 +95,11 @@ export default function Contact() {
                     Direct Email
                   </h4>
                   <a
-                    href="mailto:your@email.com"
+                    href={`mailto:${content.social.email}`}
                     className="text-lg text-text-primary hover:text-accent-sage-light transition-colors flex items-center gap-2"
                   >
                     <Mail className="w-5 h-5" />
-                    your@email.com
+                    {content.social.email}
                   </a>
                 </div>
 

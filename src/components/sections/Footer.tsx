@@ -4,6 +4,7 @@ import React from 'react';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp } from '@/lib/animations';
+import content from '@/data/content.json';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,12 +25,12 @@ export default function Footer() {
     { name: 'Contact', id: 'contact' },
   ];
 
-  // T009: Social links array
+  // T009: Social links array - now using centralized content.json
   const socialLinks = [
-    { name: 'GitHub', icon: Github, href: 'https://github.com/yourusername' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/in/yourusername' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/yourusername' },
-    { name: 'Email', icon: Mail, href: 'mailto:your@email.com' },
+    { name: 'GitHub', icon: Github, href: content.social.github },
+    { name: 'LinkedIn', icon: Linkedin, href: content.social.linkedin },
+    { name: 'Twitter', icon: Twitter, href: content.social.twitter },
+    { name: 'Email', icon: Mail, href: `mailto:${content.social.email}` },
   ];
 
   return (
@@ -83,9 +84,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* T011, T012: Copyright with dynamic year */}
+        {/* T011, T012: Copyright with dynamic year - now using centralized content.json */}
         <div className="text-center text-text-muted text-sm">
-          <p>© {currentYear} Your Name. All rights reserved.</p>
+          <p>© {currentYear} {content.owner.name}. All rights reserved.</p>
         </div>
       </motion.div>
     </footer>
