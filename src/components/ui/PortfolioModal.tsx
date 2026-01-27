@@ -55,15 +55,15 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
             aria-hidden="true"
           />
 
-          {/* Modal - T035: Reduced entrance animation */}
-          <div className="fixed inset-0 z-50 overflow-y-auto">
+          {/* Modal - T035: Reduced entrance animation - z-[60] to be above backdrop */}
+          <div className="fixed inset-0 z-[60] overflow-y-auto pointer-events-none">
             <div className="flex min-h-full items-center justify-center p-4">
               <motion.div
                 initial={{ opacity: 0.9, scale: 0.98, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0.9, scale: 0.98, y: 10 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="relative w-full max-w-4xl glass-heavy rounded-2xl shadow-2xl"
+                className="relative w-full max-w-4xl glass-heavy rounded-2xl shadow-2xl pointer-events-auto"
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="modal-title"

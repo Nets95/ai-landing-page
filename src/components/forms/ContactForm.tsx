@@ -115,7 +115,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="card-minimal p-8">
+    <div className="card-minimal p-8 flex flex-col h-full">
       <AnimatePresence mode="wait">
         {submissionState === 'success' ? (
           <motion.div

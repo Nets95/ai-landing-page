@@ -73,15 +73,15 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Contact content - side by side layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        {/* Contact content - side by side layout - items-stretch for equal heights */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Contact form */}
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUp} className="flex flex-col">
             <ContactForm />
           </motion.div>
 
           {/* Contact information - T045: Refined card styling */}
-          <motion.div className="space-y-8" variants={fadeInUp}>
+          <motion.div className="space-y-8 flex flex-col h-full" variants={fadeInUp}>
             {/* Contact info card */}
             <div className="card-minimal p-8">
               <h3 className="text-2xl font-bold text-text-primary font-heading mb-6">
