@@ -56,24 +56,30 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
           />
 
           {/* Modal - T035: Reduced entrance animation - z-[60] to be above backdrop */}
-          <div className="fixed inset-0 z-[60] overflow-y-auto pointer-events-none">
+          <div className="fixed inset-0 z-[60] overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4">
               <motion.div
                 initial={{ opacity: 0.9, scale: 0.98, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0.9, scale: 0.98, y: 10 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="relative w-full max-w-4xl glass-heavy rounded-2xl shadow-2xl pointer-events-auto"
+                className="relative w-full max-w-4xl glass-heavy rounded-2xl shadow-2xl"
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="modal-title"
                 onClick={(e) => e.stopPropagation()}
               >
-                {/* Close Button */}
+                {/* Close Button - z-[70] to ensure it's above all content */}
                 <button
-                  onClick={onClose}
-                  className="absolute top-4 right-4 z-10 p-2 rounded-full glass-medium hover:glass-heavy transition-all duration-300 text-text-secondary hover:text-text-primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onClose();
+                  }}
+                  className="absolute top-4 right-4 z-[70] p-2 rounded-full glass-medium hover:glass-heavy transition-all duration-300 text-text-secondary hover:text-text-primary cursor-pointer"
+                  style={{ position: 'absolute', zIndex: 9999 }}
                   aria-label="Close modal"
+                  type="button"
                 >
                   <X className="w-6 h-6" />
                 </button>
