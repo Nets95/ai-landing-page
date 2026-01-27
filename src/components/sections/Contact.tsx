@@ -81,14 +81,14 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact information - T045: Refined card styling */}
-          <motion.div className="space-y-8 flex flex-col h-full" variants={fadeInUp}>
-            {/* Contact info card */}
-            <div className="card-minimal p-8">
+          <motion.div className="flex flex-col gap-8 h-full" variants={fadeInUp}>
+            {/* Contact info card - flex-1 to grow and fill space */}
+            <div className="card-minimal p-8 flex-1 flex flex-col">
               <h3 className="text-2xl font-bold text-text-primary font-heading mb-6">
                 Get in Touch
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-6 flex-1">
                 <div>
                   <h4 className="text-sm font-semibold text-text-muted uppercase tracking-wider mb-2">
                     Direct Email
@@ -138,7 +138,7 @@ export default function Contact() {
             </div>
 
             {/* Social links */}
-            <div className="card-minimal p-8">
+            <div className="card-minimal p-8 flex-shrink-0">
               <h3 className="text-xl font-bold text-text-primary font-heading mb-6">
                 Connect on Social
               </h3>
