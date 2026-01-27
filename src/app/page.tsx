@@ -2,6 +2,7 @@ import { Hero } from '@/components/sections/Hero';
 import { TechShowcase } from '@/components/sections/TechShowcase';
 import { Portfolio } from '@/components/sections/Portfolio';
 import Contact from '@/components/sections/Contact';
+import Footer from '@/components/sections/Footer';
 
 export default function Home() {
   return (
@@ -27,6 +28,9 @@ export default function Home() {
         {/* Contact Section */}
         <Contact />
       </main>
+
+      {/* Footer Section */}
+      <Footer />
     </>
   );
 }
