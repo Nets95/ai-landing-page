@@ -50,9 +50,13 @@
     }
   },
   "social": {
-    "github": "https://github.com",
-    "linkedin": "https://linkedin.com",
-    "twitter": "https://twitter.com",
-    "email": "contact@example.com"
+    "github": "https://github.com/yourusername",
+    "linkedin": "https://linkedin.com/in/yourusername",
+    "twitter": "https://twitter.com/yourusername",
+    "email": "your@email.com"
+  },
+  "owner": {
+    "name": "Your Name",
+    "title": "AI Engineer & Innovation Specialist"
   }
 }
