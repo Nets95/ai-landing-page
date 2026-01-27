@@ -146,15 +146,24 @@ Examples of foundational tasks (adjust based on your project):
 
 ---
 
-## Phase N: Polish & Cross-Cutting Concerns
+## Phase N: Polish & Constitutional Compliance
 
-**Purpose**: Improvements that affect multiple user stories
+**Purpose**: Quality gates and cross-cutting improvements per Constitution
+
+### Quality Gates (Mandatory per Constitution)
+
+- [ ] TXXX [P] Code Quality: Verify linting passes, code review completed, no code smells
+- [ ] TXXX [P] Testing Gate: Confirm 80% coverage maintained, all tests pass in CI
+- [ ] TXXX [P] UX/UI Gate: Accessibility audit (WCAG 2.1 AA), responsive design verification
+- [ ] TXXX [P] Performance Gate: Lighthouse score > 90, Core Web Vitals compliance, bundle size check
+
+### Cross-Cutting Improvements
 
 - [ ] TXXX [P] Documentation updates in docs/
-- [ ] TXXX Code cleanup and refactoring
+- [ ] TXXX Code cleanup and refactoring for maintainability
 - [ ] TXXX Performance optimization across all stories
-- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
-- [ ] TXXX Security hardening
+- [ ] TXXX [P] Additional unit tests (if coverage gaps identified) in tests/unit/
+- [ ] TXXX Security hardening and vulnerability scanning
 - [ ] TXXX Run quickstart.md validation
 
 ---

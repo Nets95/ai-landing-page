@@ -1,0 +1,127 @@
+[
+  {
+    "id": "1",
+    "title": "AI-Powered Customer Support Automation",
+    "description": "Enterprise chatbot system using Claude 3.5 Sonnet for handling customer inquiries with 95% accuracy.",
+    "longDescription": "Developed a comprehensive customer support automation system leveraging Claude 3.5 Sonnet and RAG (Retrieval-Augmented Generation) to handle complex customer inquiries. The system integrates with existing CRM platforms and provides real-time support across multiple channels including web chat, email, and mobile apps. Implemented advanced context retention and personalization features to deliver human-like interactions.",
+    "image": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
+    "technologies": [
+      "Claude 3.5 Sonnet",
+      "Python",
+      "FastAPI",
+      "Vector DB",
+      "React",
+      "TypeScript"
+    ],
+    "category": "LLM Application",
+    "outcomes": [
+      {
+        "metric": "Response Time",
+        "value": "80% reduction"
+      },
+      {
+        "metric": "Customer Satisfaction",
+        "value": "95% accuracy"
+      },
+      {
+        "metric": "Cost Savings",
+        "value": "$500K annually"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "2",
+    "title": "Intelligent Document Processing Pipeline",
+    "description": "ML-powered document extraction and classification system processing 10,000+ documents daily.",
+    "longDescription": "Built an end-to-end document processing pipeline using computer vision and NLP models to extract, classify, and structure information from various document types including invoices, contracts, and reports. The system uses a combination of OCR, custom trained models, and Claude for intelligent extraction. Achieved 98% accuracy in document classification and significantly reduced manual data entry time.",
+    "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop",
+    "technologies": [
+      "PyTorch",
+      "Tesseract OCR",
+      "Claude API",
+      "PostgreSQL",
+      "Docker",
+      "AWS"
+    ],
+    "category": "Machine Learning",
+    "outcomes": [
+      {
+        "metric": "Processing Speed",
+        "value": "10,000+ docs/day"
+      },
+      {
+        "metric": "Accuracy",
+        "value": "98%"
+      },
+      {
+        "metric": "Time Saved",
+        "value": "90% reduction"
+      }
+    ],
+    "githubUrl": "https://github.com",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": "Real-Time Sentiment Analysis Dashboard",
+    "description": "Analytics platform for monitoring brand sentiment across social media using transformer models.",
+    "longDescription": "Created a comprehensive sentiment analysis platform that monitors and analyzes brand mentions across Twitter, Reddit, and news outlets in real-time. Uses fine-tuned BERT models for sentiment classification and Claude for contextual analysis. The dashboard provides actionable insights, trend detection, and automated alerts for negative sentiment spikes.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    "technologies": [
+      "BERT",
+      "Python",
+      "Kafka",
+      "Elasticsearch",
+      "React",
+      "D3.js"
+    ],
+    "category": "Data Engineering",
+    "outcomes": [
+      {
+        "metric": "Data Points",
+        "value": "1M+ daily"
+      },
+      {
+        "metric": "Response Time",
+        "value": "< 2 seconds"
+      },
+      {
+        "metric": "Accuracy",
+        "value": "92%"
+      }
+    ],
+    "liveUrl": "https://example.com"
+  },
+  {
+    "id": "4",
+    "title": "Code Review Assistant",
+    "description": "AI-powered code review tool that identifies bugs, security vulnerabilities, and suggests improvements.",
+    "longDescription": "Developed an intelligent code review assistant that integrates with GitHub and GitLab to automatically review pull requests. The system uses Claude 3.5 Sonnet to understand code context, identify potential bugs, security vulnerabilities, and suggest performance optimizations. Includes custom rules engine and learns from team preferences over time.",
+    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
+    "technologies": [
+      "Claude 3.5 Sonnet",
+      "Node.js",
+      "GitHub API",
+      "TypeScript",
+      "MongoDB"
+    ],
+    "category": "AI Automation",
+    "outcomes": [
+      {
+        "metric": "Bugs Detected",
+        "value": "500+ prevented"
+      },
+      {
+        "metric": "Review Time",
+        "value": "60% faster"
+      },
+      {
+        "metric": "Team Productivity",
+        "value": "40% increase"
+      }
+    ],
+    "githubUrl": "https://github.com",
+    "featured": true
+  }
+]

@@ -1,0 +1,319 @@
+openapi: 3.0.3
+info:
+  title: AI Engineer Portfolio Contact API
+  description: |
+    API endpoint for handling contact form submissions from the AI engineer portfolio landing page.
+
+    This API validates user input, prevents spam, and sends email notifications via SendGrid.
+    All submissions are validated server-side with the same Zod schema used on the client.
+
+    **Rate Limiting**: 10 requests per IP per hour to prevent abuse.
+    **Spam Protection**: IP tracking, user agent validation, honeypot field.
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://ai-engineer-portfolio.example.com/api
+    description: Production server
+  - url: http://localhost:3000/api
+    description: Local development server
+
+tags:
+  - name: Contact
+    description: Contact form submission operations
+
+paths:
+  /contact:
+    post:
+      tags:
+        - Contact
+      summary: Submit contact form
+      description: |
+        Handles contact form submissions from the landing page.
+
+        **Process Flow**:
+        1. Validate request body against schema
+        2. Check rate limit for IP address
+        3. Extract user metadata (IP, user agent)
+        4. Send email via SendGrid
+        5. Return success/error response
+
+        **Security**:
+        - Input sanitization to prevent XSS
+        - Rate limiting per IP (10 req/hour)
+        - CORS restricted to domain origin
+        - No PII logged
+
+        **Error Handling**:
+        - 400: Validation errors with field-level messages
+        - 429: Rate limit exceeded
+        - 500: Server error (email service failure)
+      operationId: submitContactForm
+      requestBody:
+        required: true
+        description: Contact form submission data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRequest'
+            examples:
+              consultation:
+                summary: Consultation inquiry
+                value:
+                  name: Jane Smith
+                  email: jane.smith@example.com
+                  message: I'm interested in a consultation to discuss AI automation opportunities for my e-commerce business. We're processing 10K+ orders per month and want to explore intelligent recommendation systems.
+                  inquiryType: consultation
+              project:
+                summary: Project collaboration
+                value:
+                  name: John Doe
+                  email: john.doe@startup.com
+                  message: We're building an AI-powered content platform and looking for an engineer to lead LLM integration. The project involves Claude API, RAG pipelines, and real-time generation.
+                  inquiryType: project
+              general:
+                summary: General inquiry
+                value:
+                  name: Alex Johnson
+                  email: alex@example.com
+                  message: I came across your portfolio and would love to connect. Your work on predictive maintenance systems aligns perfectly with our current challenges in manufacturing.
+                  inquiryType: general
+      responses:
+        '200':
+          description: Contact form submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactSuccessResponse'
+              examples:
+                success:
+                  summary: Successful submission
+                  value:
+                    success: true
+                    message: Message sent successfully! We'll get back to you within 24 hours.
+                    submissionId: 550e8400-e29b-41d4-a716-446655440000
+        '400':
+          description: Validation error (invalid input)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactErrorResponse'
+              examples:
+                validationError:
+                  summary: Multiple validation errors
+                  value:
+                    success: false
+                    message: Validation failed
+                    errors:
+                      - field: name
+                        message: Name must be at least 2 characters
+                      - field: email
+                        message: Invalid email address
+                      - field: message
+                        message: Message must be at least 20 characters
+                emailError:
+                  summary: Invalid email format
+                  value:
+                    success: false
+                    message: Validation failed
+                    errors:
+                      - field: email
+                        message: Invalid email address
+                messageError:
+                  summary: Message too short
+                  value:
+                    success: false
+                    message: Validation failed
+                    errors:
+                      - field: message
+                        message: Message must be at least 20 characters
+        '429':
+          description: Rate limit exceeded
+          headers:
+            X-RateLimit-Limit:
+              description: Maximum requests allowed per hour
+              schema:
+                type: integer
+                example: 10
+            X-RateLimit-Remaining:
+              description: Remaining requests in current window
+              schema:
+                type: integer
+                example: 0
+            X-RateLimit-Reset:
+              description: Timestamp when rate limit resets (Unix epoch)
+              schema:
+                type: integer
+                example: 1706308800
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactErrorResponse'
+              examples:
+                rateLimitError:
+                  summary: Rate limit exceeded
+                  value:
+                    success: false
+                    message: Too many requests. Please try again later.
+        '500':
+          description: Server error (email service failure)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactErrorResponse'
+              examples:
+                serverError:
+                  summary: Internal server error
+                  value:
+                    success: false
+                    message: An error occurred while processing your request. Please try again.
+                emailServiceError:
+                  summary: Email service error
+                  value:
+                    success: false
+                    message: Failed to send email. Please try again or contact us directly.
+
+components:
+  schemas:
+    ContactRequest:
+      type: object
+      required:
+        - name
+        - email
+        - message
+      properties:
+        name:
+          type: string
+          minLength: 2
+          maxLength: 100
+          pattern: '^[a-zA-Z\s''-]+$'
+          description: Sender's full name (letters, spaces, hyphens, apostrophes only)
+          example: Jane Smith
+        email:
+          type: string
+          format: email
+          maxLength: 255
+          description: Sender's email address (validated format)
+          example: jane.smith@example.com
+        message:
+          type: string
+          minLength: 20
+          maxLength: 2000
+          description: Message content (plain text, HTML tags stripped)
+          example: I'm interested in discussing AI automation opportunities for my business. Could we schedule a consultation call next week?
+        inquiryType:
+          type: string
+          enum:
+            - consultation
+            - project
+            - general
+          description: Type of inquiry (optional, for routing/prioritization)
+          example: consultation
+
+    ContactSuccessResponse:
+      type: object
+      required:
+        - success
+        - message
+        - submissionId
+      properties:
+        success:
+          type: boolean
+          enum: [true]
+          description: Indicates successful submission
+          example: true
+        message:
+          type: string
+          description: Human-readable success message
+          example: Message sent successfully! We'll get back to you within 24 hours.
+        submissionId:
+          type: string
+          format: uuid
+          description: Unique identifier for this submission (for tracking/support)
+          example: 550e8400-e29b-41d4-a716-446655440000
+
+    ContactErrorResponse:
+      type: object
+      required:
+        - success
+        - message
+      properties:
+        success:
+          type: boolean
+          enum: [false]
+          description: Indicates failed submission
+          example: false
+        message:
+          type: string
+          description: Human-readable error message
+          example: Validation failed
+        errors:
+          type: array
+          description: Field-level validation errors (present for 400 responses)
+          items:
+            $ref: '#/components/schemas/ValidationError'
+
+    ValidationError:
+      type: object
+      required:
+        - field
+        - message
+      properties:
+        field:
+          type: string
+          enum:
+            - name
+            - email
+            - message
+            - inquiryType
+          description: Field name that failed validation
+          example: email
+        message:
+          type: string
+          description: Validation error message for this field
+          example: Invalid email address
+
+  securitySchemes:
+    ApiRateLimit:
+      type: apiKey
+      in: header
+      name: X-RateLimit-Limit
+      description: Rate limiting based on IP address (10 requests per hour)
+
+security:
+  - ApiRateLimit: []
+
+x-rate-limit:
+  limit: 10
+  window: 3600
+  by: ip_address
+
+x-spam-protection:
+  honeypot_field: website
+  captcha: none
+  ip_tracking: true
+  user_agent_validation: true
+
+x-email-configuration:
+  service: SendGrid
+  from_email: noreply@example.com
+  to_email: contact@example.com
+  subject_template: "New Contact Form Submission: {{ name }}"
+  reply_to: "{{ email }}"
+
+x-monitoring:
+  metrics:
+    - submission_count
+    - validation_error_rate
+    - email_delivery_success_rate
+    - api_latency_p99
+  alerts:
+    - condition: email_delivery_success_rate < 95%
+      action: Notify ops team
+    - condition: validation_error_rate > 50%
+      action: Check for spam attack

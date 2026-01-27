@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "name": "Claude 3.5 Sonnet",
+    "description": "Production-grade LLM applications with advanced reasoning and multi-turn conversations.",
+    "category": "LLM & AI Models",
+    "icon": "🤖",
+    "proficiency": "expert"
+  },
+  {
+    "id": "2",
+    "name": "GPT-4",
+    "description": "Building intelligent agents and complex AI workflows with OpenAI's latest models.",
+    "category": "LLM & AI Models",
+    "icon": "✨",
+    "proficiency": "expert"
+  },
+  {
+    "id": "3",
+    "name": "PyTorch",
+    "description": "Deep learning model development, training, and deployment at scale.",
+    "category": "ML Frameworks",
+    "icon": "🔥",
+    "proficiency": "advanced"
+  },
+  {
+    "id": "4",
+    "name": "TensorFlow",
+    "description": "Production ML pipelines and model serving infrastructure.",
+    "category": "ML Frameworks",
+    "icon": "🧠",
+    "proficiency": "advanced"
+  },
+  {
+    "id": "5",
+    "name": "LangChain",
+    "description": "Building complex LLM applications with chains, agents, and custom tools.",
+    "category": "LLM & AI Models",
+    "icon": "⛓️",
+    "proficiency": "expert"
+  },
+  {
+    "id": "6",
+    "name": "Vector Databases",
+    "description": "Pinecone, Weaviate, and ChromaDB for semantic search and RAG applications.",
+    "category": "Data Engineering",
+    "icon": "🗄️",
+    "proficiency": "advanced"
+  },
+  {
+    "id": "7",
+    "name": "Apache Kafka",
+    "description": "Real-time data streaming and event-driven architectures.",
+    "category": "Data Engineering",
+    "icon": "📡",
+    "proficiency": "advanced"
+  },
+  {
+    "id": "8",
+    "name": "Docker & Kubernetes",
+    "description": "Containerization and orchestration for scalable AI deployments.",
+    "category": "Cloud & Infrastructure",
+    "icon": "🐳",
+    "proficiency": "advanced"
+  },
+  {
+    "id": "9",
+    "name": "AWS SageMaker",
+    "description": "ML model training, deployment, and monitoring on AWS infrastructure.",
+    "category": "Cloud & Infrastructure",
+    "icon": "☁️",
+    "proficiency": "advanced"
+  },
+  {
+    "id": "10",
+    "name": "FastAPI",
+    "description": "High-performance API development for ML and AI services.",
+    "category": "Development Tools",
+    "icon": "⚡",
+    "proficiency": "expert"
+  }
+]
