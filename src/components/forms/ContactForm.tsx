@@ -156,7 +156,7 @@ export default function ContactForm() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-6"
+            className="space-y-4"
           >
             {/* Name field */}
             <div>
@@ -176,19 +176,22 @@ export default function ContactForm() {
                 aria-invalid={errors.name ? 'true' : 'false'}
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
-              {errors.name && (
-                <motion.p
-                  id="name-error"
-                  initial={{ opacity: 0.9, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="mt-2 text-sm text-semantic-error flex items-center gap-1"
-                  role="alert"
-                >
-                  <AlertCircle className="w-4 h-4" />
-                  {errors.name.message}
-                </motion.p>
-              )}
+              {/* Fixed height container for error message */}
+              <div className="h-6 mt-2">
+                {errors.name && (
+                  <motion.p
+                    id="name-error"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-sm text-semantic-error flex items-center gap-1"
+                    role="alert"
+                  >
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span className="truncate">{errors.name.message}</span>
+                  </motion.p>
+                )}
+              </div>
             </div>
 
             {/* Email field */}
@@ -209,19 +212,22 @@ export default function ContactForm() {
                 aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
-              {errors.email && (
-                <motion.p
-                  id="email-error"
-                  initial={{ opacity: 0.9, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="mt-2 text-sm text-semantic-error flex items-center gap-1"
-                  role="alert"
-                >
-                  <AlertCircle className="w-4 h-4" />
-                  {errors.email.message}
-                </motion.p>
-              )}
+              {/* Fixed height container for error message */}
+              <div className="h-6 mt-2">
+                {errors.email && (
+                  <motion.p
+                    id="email-error"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-sm text-semantic-error flex items-center gap-1"
+                    role="alert"
+                  >
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span className="truncate">{errors.email.message}</span>
+                  </motion.p>
+                )}
+              </div>
             </div>
 
             {/* Inquiry type field */}
@@ -246,19 +252,22 @@ export default function ContactForm() {
                 <option value="project">Project Collaboration</option>
                 <option value="general">General Inquiry</option>
               </select>
-              {errors.inquiryType && (
-                <motion.p
-                  id="inquiryType-error"
-                  initial={{ opacity: 0.9, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="mt-2 text-sm text-semantic-error flex items-center gap-1"
-                  role="alert"
-                >
-                  <AlertCircle className="w-4 h-4" />
-                  {errors.inquiryType.message}
-                </motion.p>
-              )}
+              {/* Fixed height container for error message */}
+              <div className="h-6 mt-2">
+                {errors.inquiryType && (
+                  <motion.p
+                    id="inquiryType-error"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-sm text-semantic-error flex items-center gap-1"
+                    role="alert"
+                  >
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span className="truncate">{errors.inquiryType.message}</span>
+                  </motion.p>
+                )}
+              </div>
             </div>
 
             {/* Message field */}
@@ -279,19 +288,22 @@ export default function ContactForm() {
                 aria-invalid={errors.message ? 'true' : 'false'}
                 aria-describedby={errors.message ? 'message-error' : undefined}
               />
-              {errors.message && (
-                <motion.p
-                  id="message-error"
-                  initial={{ opacity: 0.9, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="mt-2 text-sm text-semantic-error flex items-center gap-1"
-                  role="alert"
-                >
-                  <AlertCircle className="w-4 h-4" />
-                  {errors.message.message}
-                </motion.p>
-              )}
+              {/* Fixed height container for error message */}
+              <div className="h-6 mt-2">
+                {errors.message && (
+                  <motion.p
+                    id="message-error"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-sm text-semantic-error flex items-center gap-1"
+                    role="alert"
+                  >
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span className="truncate">{errors.message.message}</span>
+                  </motion.p>
+                )}
+              </div>
             </div>
 
             {/* Error message */}
