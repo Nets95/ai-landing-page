@@ -1,0 +1,613 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "2.0.0",
+  "description": "Design token schema for Modern Dark UI Redesign. Defines muted earth-tone palette, reduced animation parameters, soft borders, and large ambient gradients.",
+  "lastUpdated": "2026-01-27",
+  "tokens": {
+    "colors": {
+      "background": {
+        "primary": {
+          "type": "hex",
+          "value": "#0A0D16",
+          "description": "Deep charcoal background for primary surfaces",
+          "required": true,
+          "wcagContrast": {
+            "withTextPrimary": 15.8
+          }
+        },
+        "secondary": {
+          "type": "hex",
+          "value": "#12151F",
+          "description": "Slightly lighter background for secondary surfaces",
+          "required": true,
+          "wcagContrast": {
+            "withTextPrimary": 14.2
+          }
+        },
+        "surface": {
+          "type": "hex",
+          "value": "#1A1E2E",
+          "description": "Card and surface color with subtle elevation",
+          "required": true,
+          "wcagContrast": {
+            "withTextPrimary": 11.5
+          }
+        },
+        "overlay": {
+          "type": "rgba",
+          "value": "rgba(10, 13, 22, 0.95)",
+          "description": "Semi-transparent overlay for modals and drawers",
+          "required": true
+        }
+      },
+      "text": {
+        "primary": {
+          "type": "hex",
+          "value": "#F8F9FA",
+          "description": "High contrast white for primary text",
+          "required": true,
+          "wcagContrast": {
+            "withBgPrimary": 15.8
+          }
+        },
+        "secondary": {
+          "type": "hex",
+          "value": "#C8CACD",
+          "description": "Muted light gray for secondary text",
+          "required": true,
+          "wcagContrast": {
+            "withBgPrimary": 9.2
+          }
+        },
+        "muted": {
+          "type": "hex",
+          "value": "#8B8D91",
+          "description": "Subtle gray for tertiary text and hints",
+          "required": true,
+          "wcagContrast": {
+            "withBgPrimary": 5.1
+          }
+        },
+        "disabled": {
+          "type": "hex",
+          "value": "#5A5C60",
+          "description": "Low emphasis for disabled states",
+          "required": false,
+          "wcagContrast": {
+            "withBgPrimary": 3.2
+          }
+        }
+      },
+      "accents": {
+        "sage": {
+          "light": {
+            "type": "hex",
+            "value": "#8FA88F",
+            "description": "Muted sage green for highlights and primary accents",
+            "required": true,
+            "wcagContrast": {
+              "withBgPrimary": 6.4
+            }
+          },
+          "base": {
+            "type": "hex",
+            "value": "#6B8270",
+            "description": "Base sage for primary accent color",
+            "required": true,
+            "wcagContrast": {
+              "withBgPrimary": 4.8
+            }
+          },
+          "dark": {
+            "type": "hex",
+            "value": "#4A5D52",
+            "description": "Deep sage for subtle accents",
+            "required": false,
+            "wcagContrast": {
+              "withBgPrimary": 3.1
+            }
+          }
+        },
+        "earth": {
+          "light": {
+            "type": "hex",
+            "value": "#C9B8A8",
+            "description": "Warm beige for contrast accents",
+            "required": true,
+            "wcagContrast": {
+              "withBgPrimary": 8.2
+            }
+          },
+          "base": {
+            "type": "hex",
+            "value": "#A89383",
+            "description": "Base earth tone for secondary accents",
+            "required": true,
+            "wcagContrast": {
+              "withBgPrimary": 5.9
+            }
+          },
+          "dark": {
+            "type": "hex",
+            "value": "#7D6D5E",
+            "description": "Deep earth tone for very subtle accents",
+            "required": false,
+            "wcagContrast": {
+              "withBgPrimary": 4.1
+            }
+          }
+        },
+        "olive": {
+          "light": {
+            "type": "hex",
+            "value": "#9AA184",
+            "description": "Soft olive for tertiary accents",
+            "required": false,
+            "wcagContrast": {
+              "withBgPrimary": 6.1
+            }
+          },
+          "base": {
+            "type": "hex",
+            "value": "#7A8366",
+            "description": "Base olive for muted accents",
+            "required": false,
+            "wcagContrast": {
+              "withBgPrimary": 4.7
+            }
+          },
+          "dark": {
+            "type": "hex",
+            "value": "#5A6248",
+            "description": "Deep olive for very subtle accents",
+            "required": false,
+            "wcagContrast": {
+              "withBgPrimary": 3.3
+            }
+          }
+        }
+      },
+      "semantic": {
+        "success": {
+          "type": "hex",
+          "value": "#6B9B7C",
+          "description": "Muted green for success states",
+          "required": true,
+          "wcagContrast": {
+            "withBgPrimary": 4.7
+          }
+        },
+        "error": {
+          "type": "hex",
+          "value": "#C67C7C",
+          "description": "Muted red for error states",
+          "required": true,
+          "wcagContrast": {
+            "withBgPrimary": 5.2
+          }
+        },
+        "warning": {
+          "type": "hex",
+          "value": "#D4A574",
+          "description": "Muted amber for warning states",
+          "required": true,
+          "wcagContrast": {
+            "withBgPrimary": 6.8
+          }
+        },
+        "info": {
+          "type": "hex",
+          "value": "#7B9BAD",
+          "description": "Muted blue for informational states",
+          "required": true,
+          "wcagContrast": {
+            "withBgPrimary": 5.1
+          }
+        }
+      },
+      "borders": {
+        "default": {
+          "type": "rgba",
+          "value": "rgba(200, 202, 205, 0.08)",
+          "description": "Very subtle border for default state",
+          "required": true
+        },
+        "hover": {
+          "type": "rgba",
+          "value": "rgba(200, 202, 205, 0.15)",
+          "description": "Slightly more visible border on hover",
+          "required": true
+        },
+        "focus": {
+          "type": "rgba",
+          "value": "rgba(143, 168, 143, 0.4)",
+          "description": "Clear focus indicator with sage accent",
+          "required": true
+        },
+        "divider": {
+          "type": "rgba",
+          "value": "rgba(200, 202, 205, 0.05)",
+          "description": "Very subtle divider between sections",
+          "required": false
+        }
+      }
+    },
+    "gradients": {
+      "ambient": {
+        "primary": {
+          "type": "css",
+          "value": "radial-gradient(ellipse 80% 60% at 20% 30%, rgba(107, 130, 112, 0.06) 0%, transparent 50%), radial-gradient(ellipse 70% 50% at 80% 70%, rgba(168, 147, 131, 0.04) 0%, transparent 50%)",
+          "description": "Large ambient gradient spanning viewport",
+          "required": true,
+          "performance": "GPU-accelerated, minimal impact"
+        },
+        "accent": {
+          "type": "css",
+          "value": "radial-gradient(circle at 50% 0%, rgba(143, 168, 143, 0.08) 0%, transparent 60%)",
+          "description": "Accent gradient for sections",
+          "required": false
+        }
+      },
+      "glow": {
+        "subtle": {
+          "type": "css",
+          "value": "radial-gradient(rgba(143, 168, 143, 0.08) 0%, transparent 70%)",
+          "description": "Minimal glow effect",
+          "required": true
+        },
+        "medium": {
+          "type": "css",
+          "value": "radial-gradient(rgba(143, 168, 143, 0.12) 0%, transparent 70%)",
+          "description": "Standard glow effect",
+          "required": true
+        },
+        "pronounced": {
+          "type": "css",
+          "value": "radial-gradient(rgba(143, 168, 143, 0.18) 0%, transparent 70%)",
+          "description": "Enhanced glow for primary elements",
+          "required": false
+        }
+      },
+      "overlay": {
+        "subtle": {
+          "type": "css",
+          "value": "linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%)",
+          "description": "Subtle card overlay for depth",
+          "required": true
+        },
+        "darkening": {
+          "type": "css",
+          "value": "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%)",
+          "description": "Darkening overlay for images",
+          "required": false
+        },
+        "highlight": {
+          "type": "css",
+          "value": "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 50%)",
+          "description": "Top highlight for subtle depth",
+          "required": false
+        }
+      },
+      "text": {
+        "muted": {
+          "type": "css",
+          "value": "linear-gradient(135deg, #8FA88F 0%, #A89383 100%)",
+          "description": "Muted gradient for text accents",
+          "required": true
+        },
+        "subtle": {
+          "type": "css",
+          "value": "linear-gradient(135deg, #F8F9FA 0%, #C8CACD 100%)",
+          "description": "Very subtle text gradient",
+          "required": false
+        }
+      }
+    },
+    "shadows": {
+      "sm": {
+        "type": "css",
+        "value": "0 1px 2px rgba(0, 0, 0, 0.3)",
+        "description": "Small shadow for subtle elevation",
+        "required": true
+      },
+      "md": {
+        "type": "css",
+        "value": "0 2px 4px rgba(0, 0, 0, 0.4)",
+        "description": "Medium shadow for standard elevation",
+        "required": true
+      },
+      "lg": {
+        "type": "css",
+        "value": "0 4px 8px rgba(0, 0, 0, 0.5)",
+        "description": "Large shadow for floating elements",
+        "required": false
+      },
+      "xl": {
+        "type": "css",
+        "value": "0 8px 16px rgba(0, 0, 0, 0.6)",
+        "description": "Extra large shadow for modals",
+        "required": false
+      },
+      "2xl": {
+        "type": "css",
+        "value": "0 12px 24px rgba(0, 0, 0, 0.7)",
+        "description": "Maximum shadow for prominent elements",
+        "required": false
+      },
+      "glow-minimal": {
+        "type": "css",
+        "value": "0 0 8px rgba(143, 168, 143, 0.2)",
+        "description": "Minimal sage glow (reduced from 20px @ 0.5)",
+        "required": true
+      },
+      "glow-subtle": {
+        "type": "css",
+        "value": "0 0 12px rgba(143, 168, 143, 0.25)",
+        "description": "Subtle sage glow",
+        "required": true
+      },
+      "glow-pronounced": {
+        "type": "css",
+        "value": "0 0 16px rgba(143, 168, 143, 0.3)",
+        "description": "Pronounced sage glow (reduced from 40px @ 0.7)",
+        "required": false
+      },
+      "inset-subtle": {
+        "type": "css",
+        "value": "inset 0 1px 2px rgba(0, 0, 0, 0.2)",
+        "description": "Subtle inset shadow",
+        "required": false
+      },
+      "inset-pronounced": {
+        "type": "css",
+        "value": "inset 0 2px 4px rgba(0, 0, 0, 0.3)",
+        "description": "Pronounced inset shadow",
+        "required": false
+      }
+    },
+    "spacing": {
+      "baseUnit": {
+        "type": "number",
+        "value": 4,
+        "unit": "px",
+        "description": "Base spacing unit for consistent rhythm",
+        "required": true
+      },
+      "scale": {
+        "0": "0",
+        "1": "0.25rem",
+        "2": "0.5rem",
+        "3": "0.75rem",
+        "4": "1rem",
+        "5": "1.25rem",
+        "6": "1.5rem",
+        "8": "2rem",
+        "10": "2.5rem",
+        "12": "3rem",
+        "16": "4rem",
+        "20": "5rem",
+        "24": "6rem",
+        "32": "8rem",
+        "40": "10rem",
+        "48": "12rem"
+      }
+    },
+    "borderRadius": {
+      "none": "0",
+      "sm": "0.25rem",
+      "md": "0.375rem",
+      "lg": "0.5rem",
+      "xl": "0.75rem",
+      "2xl": "1rem",
+      "full": "9999px"
+    },
+    "borderWidth": {
+      "none": "0",
+      "thin": "1px",
+      "medium": "2px",
+      "thick": "3px"
+    },
+    "backdropBlur": {
+      "none": "0",
+      "subtle": {
+        "value": "4px",
+        "description": "Minimal blur (reduced from 12px)",
+        "required": true
+      },
+      "medium": {
+        "value": "8px",
+        "description": "Standard blur (reduced from 16px)",
+        "required": true
+      },
+      "strong": {
+        "value": "12px",
+        "description": "Strong blur for modals only",
+        "required": false
+      }
+    },
+    "animation": {
+      "duration": {
+        "instant": {
+          "value": "75ms",
+          "description": "Micro-interactions",
+          "required": true
+        },
+        "fast": {
+          "value": "150ms",
+          "description": "Tooltips, dropdowns",
+          "required": true
+        },
+        "normal": {
+          "value": "300ms",
+          "description": "Cards, buttons (reduced from 600ms)",
+          "required": true
+        },
+        "moderate": {
+          "value": "400ms",
+          "description": "Modals, sections (reduced from 600ms)",
+          "required": true
+        },
+        "slow": {
+          "value": "600ms",
+          "description": "Page transitions",
+          "required": false
+        }
+      },
+      "easing": {
+        "linear": "cubic-bezier(0, 0, 1, 1)",
+        "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+        "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+        "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "smooth": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "transform": {
+        "translateY": {
+          "small": {
+            "value": "6px",
+            "description": "Minimal movement (reduced from 20px)",
+            "required": true
+          },
+          "medium": {
+            "value": "10px",
+            "description": "Standard movement (reduced from 20px)",
+            "required": true
+          },
+          "large": {
+            "value": "16px",
+            "description": "Pronounced movement (reduced from 20px)",
+            "required": false
+          }
+        },
+        "translateX": {
+          "small": "6px",
+          "medium": "10px",
+          "large": "16px"
+        },
+        "scale": {
+          "subtle": {
+            "value": 1.02,
+            "description": "Minimal scale on hover (reduced from 1.05)",
+            "required": true
+          },
+          "normal": {
+            "value": 1.05,
+            "description": "Standard scale",
+            "required": false
+          },
+          "pronounced": {
+            "value": 1.08,
+            "description": "Pronounced scale",
+            "required": false
+          }
+        }
+      },
+      "opacity": {
+        "fadeIn": {
+          "from": 0.9,
+          "to": 1,
+          "description": "Start higher for subtlety (from 0.9 instead of 0)"
+        },
+        "fadeOut": {
+          "from": 1,
+          "to": 0.9,
+          "description": "End higher for subtlety"
+        }
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "heading": "var(--font-space-grotesk), sans-serif",
+        "body": "var(--font-inter), sans-serif",
+        "mono": "Fira Code, Courier New, monospace"
+      },
+      "fontSize": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "6xl": "3.75rem",
+        "7xl": "4.5rem"
+      },
+      "fontWeight": {
+        "light": 300,
+        "normal": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700,
+        "extrabold": 800
+      },
+      "lineHeight": {
+        "tight": 1.1,
+        "snug": 1.25,
+        "normal": 1.5,
+        "relaxed": 1.625,
+        "loose": 2
+      },
+      "letterSpacing": {
+        "tighter": "-0.05em",
+        "tight": "-0.025em",
+        "normal": "0",
+        "wide": "0.025em",
+        "wider": "0.05em",
+        "widest": "0.1em"
+      }
+    }
+  },
+  "breakpoints": {
+    "mobile": {
+      "minWidth": "320px",
+      "maxWidth": "767px",
+      "touchTarget": "44px"
+    },
+    "tablet": {
+      "minWidth": "768px",
+      "maxWidth": "1023px",
+      "touchTarget": "44px"
+    },
+    "desktop": {
+      "minWidth": "1024px",
+      "maxWidth": null,
+      "touchTarget": "44px"
+    },
+    "ultrawide": {
+      "minWidth": "1920px",
+      "maxWidth": "3840px",
+      "containerMaxWidth": "1680px"
+    }
+  },
+  "accessibility": {
+    "minimumContrast": {
+      "normalText": 4.5,
+      "largeText": 3.0,
+      "graphicalObjects": 3.0
+    },
+    "focusIndicator": {
+      "outlineWidth": "2px",
+      "outlineOffset": "2px",
+      "outlineColor": "rgba(143, 168, 143, 0.4)"
+    },
+    "reducedMotion": {
+      "enabled": true,
+      "fallbackDuration": "0.01ms"
+    }
+  },
+  "performance": {
+    "bundleBudget": {
+      "maxGzipped": "200KB",
+      "currentEstimated": "~15KB addition"
+    },
+    "animationTargets": {
+      "minFPS": 60,
+      "properties": ["transform", "opacity"]
+    },
+    "blurOptimization": {
+      "maxBackdropBlur": "12px",
+      "recommendedDefault": "4px-8px"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "headline": "AI Engineer & Innovation Specialist",
+    "tagline": "Building production-grade AI systems without traditional IDEs. Leveraging Claude Code and modern AI tools to deliver intelligent solutions that scale.",
+    "cta": {
+      "primary": "View Projects",
+      "secondary": "Get in Touch"
+    }
+  },
+  "techShowcase": {
+    "headline": "Technologies & Expertise",
+    "subtitle": "Specialized in cutting-edge AI technologies and frameworks for building intelligent systems",
+    "categories": [
+      "All",
+      "LLM & AI Models",
+      "ML Frameworks",
+      "Data Engineering",
+      "Development Tools",
+      "Cloud & Infrastructure"
+    ]
+  },
+  "portfolio": {
+    "headline": "Featured Projects",
+    "subtitle": "Real-world AI solutions delivering measurable business impact",
+    "viewProjectCta": "View Details",
+    "categories": [
+      "All",
+      "LLM Application",
+      "Machine Learning",
+      "Data Engineering",
+      "AI Automation"
+    ]
+  },
+  "contact": {
+    "headline": "Let's Build Something Amazing",
+    "subtitle": "Ready to discuss your next AI project? Get in touch and let's explore how we can work together.",
+    "form": {
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "your.email@example.com",
+      "messagePlaceholder": "Tell me about your project or inquiry...",
+      "inquiryTypeLabel": "Inquiry Type",
+      "submitButton": "Send Message",
+      "submittingButton": "Sending...",
+      "successMessage": "Message sent! I'll get back to you within 24 hours.",
+      "errorMessage": "Something went wrong. Please try again or email me directly."
+    },
+    "info": {
+      "email": "contact@example.com",
+      "availability": "Available for consulting and project collaboration"
+    }
+  },
+  "social": {
+    "github": "https://github.com",
+    "linkedin": "https://linkedin.com",
+    "twitter": "https://twitter.com",
+    "email": "contact@example.com"
+  }
+}
