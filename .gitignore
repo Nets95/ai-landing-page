@@ -90,6 +90,9 @@ web-vitals-report.*
 # Claude Code / AI Assistant artifacts
 .claude/
 scratchpad/
+.specify/
+docs/
+specs/
 
 # Backup files
 *.backup
