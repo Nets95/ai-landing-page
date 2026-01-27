@@ -37,9 +37,13 @@ export const TechShowcase: React.FC = () => {
     >
       {/* T024: Subtle ambient gradient background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(107, 130, 112, 0.04) 0%, transparent 60%)'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(107, 130, 112, 0.04) 0%, transparent 60%)',
+          }}
+        />
       </div>
 
       <div className="container mx-auto container-padding relative z-10">

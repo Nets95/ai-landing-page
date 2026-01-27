@@ -41,9 +41,13 @@ export default function Contact() {
     >
       {/* T045: Subtle ambient gradient background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse 60% 50% at 50% 40%, rgba(122, 131, 102, 0.04) 0%, transparent 60%)'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 50% at 50% 40%, rgba(122, 131, 102, 0.04) 0%, transparent 60%)',
+          }}
+        />
       </div>
 
       <motion.div

@@ -1050,29 +1050,5 @@ export interface MotionVariants {
 }
 
 // ============================================================================
-// Export All Types
+// All types are exported inline above
 // ============================================================================
-
-export type {
-  ButtonProps,
-  ButtonStyleConfig,
-  CardProps,
-  CardStyleConfig,
-  TechnologyCardProps,
-  ProficiencyIndicatorProps,
-  PortfolioCardProps,
-  ImageOverlayConfig,
-  GradientTextProps,
-  AnimatedSectionProps,
-  AnimationVariantConfig,
-  GlowEffectProps,
-  GlowStyleConfig,
-  InputProps,
-  TextareaProps,
-  ModalProps,
-  NavigationProps,
-  NavigationItem,
-  ResponsiveProp,
-  ThemeContextType,
-  MotionVariants,
-};

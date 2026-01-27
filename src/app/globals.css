@@ -1,20 +1,24 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer base {
   :root {
     /* Background Colors - Deeper charcoal with olive undertones */
-    --bg-primary: #0A0D16;
-    --bg-secondary: #12151F;
-    --bg-tertiary: #1A1E2E;
-    --bg-surface: #1A1E2E;
+    --bg-primary: #0a0d16;
+    --bg-secondary: #12151f;
+    --bg-tertiary: #1a1e2e;
+    --bg-surface: #1a1e2e;
     --bg-overlay: rgba(10, 13, 22, 0.95);
 
     /* Gradients - MUTED EARTH TONES */
-    --gradient-primary: linear-gradient(135deg, #8FA88F 0%, #A89383 100%);
-    --gradient-secondary: linear-gradient(135deg, #C9B8A8 0%, #7D6D5E 100%);
-    --gradient-accent: linear-gradient(135deg, #9AA184 0%, #6B8270 100%);
-    --gradient-text-sage-earth: linear-gradient(135deg, #8FA88F 0%, #A89383 100%);
-    --gradient-text-subtle: linear-gradient(135deg, #F8F9FA 0%, #C8CACD 100%);
+    --gradient-primary: linear-gradient(135deg, #8fa88f 0%, #a89383 100%);
+    --gradient-secondary: linear-gradient(135deg, #c9b8a8 0%, #7d6d5e 100%);
+    --gradient-accent: linear-gradient(135deg, #9aa184 0%, #6b8270 100%);
+    --gradient-text-sage-earth: linear-gradient(
+      135deg,
+      #8fa88f 0%,
+      #a89383 100%
+    );
+    --gradient-text-subtle: linear-gradient(135deg, #f8f9fa 0%, #c8cacd 100%);
 
     /* Large ambient gradients for backgrounds */
     --gradient-ambient-primary: radial-gradient(
@@ -33,19 +37,19 @@
     --gradient-radial-accent: var(--gradient-ambient-secondary);
 
     /* Text Colors - Enhanced contrast */
-    --text-primary: #F8F9FA;
-    --text-secondary: #C8CACD;
-    --text-tertiary: #8B8D91;
-    --text-muted: #8B8D91;
-    --text-disabled: #5A5C60;
+    --text-primary: #f8f9fa;
+    --text-secondary: #c8cacd;
+    --text-tertiary: #8b8d91;
+    --text-muted: #8b8d91;
+    --text-disabled: #5a5c60;
 
     /* Accent Colors */
-    --accent-sage-light: #8FA88F;
-    --accent-sage: #6B8270;
-    --accent-sage-dark: #4A5D52;
-    --accent-earth-light: #C9B8A8;
-    --accent-earth: #A89383;
-    --accent-earth-dark: #7D6D5E;
+    --accent-sage-light: #8fa88f;
+    --accent-sage: #6b8270;
+    --accent-sage-dark: #4a5d52;
+    --accent-earth-light: #c9b8a8;
+    --accent-earth: #a89383;
+    --accent-earth-dark: #7d6d5e;
 
     /* Border Colors - Softer and more subtle */
     --border-default: rgba(200, 202, 205, 0.08);
@@ -56,9 +60,17 @@
     /* Transitions - Updated durations */
     --transition-default: all 0.3s ease-out;
     --transition-colors:
-      color 0.3s ease-out, background-color 0.3s ease-out, border-color 0.3s ease-out;
+      color 0.3s ease-out, background-color 0.3s ease-out,
+      border-color 0.3s ease-out;
     --transition-transform: transform 0.4s ease-out;
     --transition-shadow: box-shadow 0.3s ease-out;
+  }
+
+  /* T062: Prevent horizontal scrolling */
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
@@ -491,8 +503,7 @@
   /* Large Ambient Gradient Background */
   .ambient-gradient {
     background:
-      var(--gradient-ambient-primary),
-      var(--gradient-ambient-secondary),
+      var(--gradient-ambient-primary), var(--gradient-ambient-secondary),
       var(--bg-primary);
   }
 
@@ -511,6 +522,44 @@
     border-color: var(--border-hover);
     box-shadow: 0 0 12px rgba(143, 168, 143, 0.25);
     transform: translateY(-2px);
+  }
+}
+
+/* T059: Mobile Performance Optimizations - Reduced blur on mobile */
+@media (max-width: 767px) {
+  /* Reduce glassmorphism for mobile performance */
+  .glass,
+  .glass-light,
+  .glass-medium,
+  .card-minimal,
+  .card {
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+  }
+
+  /* Reduce ambient gradient opacity on mobile */
+  .ambient-gradient {
+    opacity: 0.7;
+  }
+
+  /* Simplify hover effects on mobile (touch devices) */
+  @media (hover: none) {
+    .hover-lift:hover,
+    .card-hover:hover,
+    .card-minimal:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  /* Ensure touch targets are adequate (44x44px minimum) */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 

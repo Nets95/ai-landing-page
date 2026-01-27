@@ -14,7 +14,7 @@ export const GradientText = React.forwardRef<
     secondary: 'gradient-text-secondary',
     accent: 'gradient-text-accent',
     'sage-earth': 'gradient-text-sage-earth', // New muted gradient
-    'subtle': 'gradient-text-subtle', // New subtle white-to-gray gradient
+    subtle: 'gradient-text-subtle', // New subtle white-to-gray gradient
   };
 
   const combinedClassName = `${variantStyles[variant]} ${className}`.trim();

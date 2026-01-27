@@ -320,7 +320,10 @@ export default function ContactForm() {
             >
               {submissionState === 'submitting' ? (
                 <>
-                  <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
+                  <Loader2
+                    className="w-5 h-5 animate-spin"
+                    aria-hidden="true"
+                  />
                   <span>Sending...</span>
                 </>
               ) : (

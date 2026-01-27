@@ -25,13 +25,21 @@ export const Hero: React.FC = () => {
       {/* Large Ambient Gradient Background - T012 */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {/* Primary ambient gradient (sage green from top-left) */}
-        <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse 80% 60% at 20% 30%, rgba(107, 130, 112, 0.06) 0%, transparent 50%)'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 80% 60% at 20% 30%, rgba(107, 130, 112, 0.06) 0%, transparent 50%)',
+          }}
+        />
         {/* Secondary ambient gradient (earth beige from bottom-right) */}
-        <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse 70% 50% at 80% 70%, rgba(168, 147, 131, 0.04) 0%, transparent 50%)'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 50% at 80% 70%, rgba(168, 147, 131, 0.04) 0%, transparent 50%)',
+          }}
+        />
       </div>
 
       {/* Content */}

@@ -18,10 +18,14 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({
 }) => {
   // T023: Muted proficiency badge colors
   const proficiencyColors = {
-    beginner: 'bg-semantic-info/20 text-semantic-info border border-semantic-info/30',
-    intermediate: 'bg-semantic-warning/20 text-semantic-warning border border-semantic-warning/30',
-    advanced: 'bg-accent-earth/20 text-accent-earth-light border border-accent-earth/30',
-    expert: 'bg-accent-sage/20 text-accent-sage-light border border-accent-sage/30',
+    beginner:
+      'bg-semantic-info/20 text-semantic-info border border-semantic-info/30',
+    intermediate:
+      'bg-semantic-warning/20 text-semantic-warning border border-semantic-warning/30',
+    advanced:
+      'bg-accent-earth/20 text-accent-earth-light border border-accent-earth/30',
+    expert:
+      'bg-accent-sage/20 text-accent-sage-light border border-accent-sage/30',
   };
 
   return (
