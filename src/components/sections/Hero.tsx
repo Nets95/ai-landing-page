@@ -22,22 +22,30 @@ export const Hero: React.FC = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden ambient-gradient"
     >
-      {/* Large Ambient Gradient Background - T012 */}
+      {/* Large Ambient Gradient Background - T012 - Enhanced contrast */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Primary ambient gradient (sage green from top-left) */}
+        {/* Primary ambient gradient (sage green from top-left) - increased from 0.06 to 0.15 */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 80% 60% at 20% 30%, rgba(107, 130, 112, 0.06) 0%, transparent 50%)',
+              'radial-gradient(ellipse 85% 65% at 20% 30%, rgba(107, 130, 112, 0.15) 0%, rgba(107, 130, 112, 0.08) 35%, transparent 60%)',
           }}
         />
-        {/* Secondary ambient gradient (earth beige from bottom-right) */}
+        {/* Secondary ambient gradient (earth beige from bottom-right) - increased from 0.04 to 0.10 */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 70% 50% at 80% 70%, rgba(168, 147, 131, 0.04) 0%, transparent 50%)',
+              'radial-gradient(ellipse 75% 55% at 80% 70%, rgba(168, 147, 131, 0.10) 0%, rgba(168, 147, 131, 0.05) 35%, transparent 60%)',
+          }}
+        />
+        {/* Tertiary ambient gradient (olive from center-bottom for depth) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 40% at 50% 85%, rgba(122, 131, 102, 0.08) 0%, transparent 50%)',
           }}
         />
       </div>
