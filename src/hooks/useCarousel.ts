@@ -65,7 +65,6 @@ export function useCarousel({
   // State management
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
 
   // Refs for timer management
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -115,7 +114,6 @@ export function useCarousel({
    */
   const pause = useCallback(() => {
     setIsPlaying(false);
-    setIsPaused(true);
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
@@ -129,7 +127,6 @@ export function useCarousel({
   const resume = useCallback(() => {
     if (shouldAutoPlay) {
       setIsPlaying(true);
-      setIsPaused(false);
     }
   }, [shouldAutoPlay]);
 
@@ -159,12 +156,6 @@ export function useCarousel({
           timerRef.current = null;
         }
       };
-    }
-
-    // If not playing, clear any existing timer
-    if (timerRef.current && (!isPlaying || isHoveredRef.current)) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
     }
   }, [shouldAutoPlay, isPlaying, config.autoPlayInterval, goToNext]);
 
@@ -203,7 +194,6 @@ export function useCarousel({
     currentIndex,
     totalSlides: sortedSlides.length,
     isPlaying,
-    isPaused,
     goToSlide,
     goToNext,
     goToPrevious,

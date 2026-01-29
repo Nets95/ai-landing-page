@@ -104,43 +104,6 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop Additional Navigation Links */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="hidden md:flex items-center space-x-8"
-          >
-            <a
-              href="#portfolio"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#portfolio');
-              }}
-              className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm"
-              style={{
-                textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
-              }}
-              aria-label="View portfolio projects"
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#contact');
-              }}
-              className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm"
-              style={{
-                textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
-              }}
-              aria-label="Get in touch"
-            >
-              Get in Touch
-            </a>
-          </motion.div>
-
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-text-primary hover:text-primary-400 transition-colors p-2"
@@ -181,38 +144,6 @@ export const Header: React.FC = () => {
                   {item.label}
                 </a>
               ))}
-
-              {/* Mobile Additional Navigation Links */}
-              <div className="flex flex-col space-y-3 pt-4 border-t border-border">
-                <a
-                  href="#portfolio"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick('#portfolio');
-                  }}
-                  className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm py-2"
-                  style={{
-                    textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
-                  }}
-                  aria-label="View portfolio projects"
-                >
-                  View Projects
-                </a>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick('#contact');
-                  }}
-                  className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm py-2"
-                  style={{
-                    textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
-                  }}
-                  aria-label="Get in touch"
-                >
-                  Get in Touch
-                </a>
-              </div>
             </nav>
           </motion.div>
         )}

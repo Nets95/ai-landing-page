@@ -126,9 +126,6 @@ export interface UseCarouselReturn {
   /** Whether auto-play is currently active (false if < 3 slides) */
   isPlaying: boolean;
 
-  /** Whether carousel is paused due to hover (desktop only) */
-  isPaused: boolean;
-
   /** Navigate to specific slide by index (0-indexed) */
   goToSlide: (index: number) => void;
 
@@ -203,79 +200,6 @@ export interface CarouselSlideProps {
 
   /** Duration of text fade-in animation in milliseconds (300-600ms) - Optional, uses default from animation variants */
   textAnimationDuration?: number;
-}
-
-/**
- * Validation error types for carousel data
- *
- * Used for runtime validation of carousel.json data.
- * Critical errors prevent carousel from rendering.
- * Warnings are logged but don't block rendering.
- */
-export enum CarouselValidationError {
-  /** Missing required config object */
-  MISSING_CONFIG = 'MISSING_CONFIG',
-
-  /** Missing required slides array */
-  MISSING_SLIDES = 'MISSING_SLIDES',
-
-  /** Slides array is empty */
-  NO_SLIDES = 'NO_SLIDES',
-
-  /** Duplicate slide ID found */
-  DUPLICATE_ID = 'DUPLICATE_ID',
-
-  /** Duplicate slide order value */
-  DUPLICATE_ORDER = 'DUPLICATE_ORDER',
-
-  /** autoPlayInterval below minimum threshold (< 3000ms) */
-  INVALID_AUTO_PLAY_INTERVAL = 'INVALID_AUTO_PLAY_INTERVAL',
-
-  /** transitionDuration outside valid range (300-1500ms) */
-  INVALID_TRANSITION_DURATION = 'INVALID_TRANSITION_DURATION',
-
-  /** textAnimationDuration outside valid range (300-600ms) */
-  INVALID_TEXT_ANIMATION_DURATION = 'INVALID_TEXT_ANIMATION_DURATION',
-
-  /** Image path doesn't start with /images/carousel/ */
-  INVALID_IMAGE_PATH = 'INVALID_IMAGE_PATH',
-
-  /** Missing required slide field (id, image, imageAlt, headline, order) */
-  MISSING_REQUIRED_FIELD = 'MISSING_REQUIRED_FIELD',
-}
-
-/**
- * Validation result for carousel data
- *
- * Returned by validation functions to indicate success/failure
- * and provide error details for debugging.
- *
- * @example
- * ```typescript
- * const result = validateCarouselData(data);
- * if (!result.isValid) {
- *   console.error('Critical errors:', result.criticalErrors);
- *   console.warn('Warnings:', result.warnings);
- * }
- * ```
- */
-export interface CarouselValidationResult {
-  /** Whether validation passed (no critical errors) */
-  isValid: boolean;
-
-  /** Critical errors that prevent carousel from rendering */
-  criticalErrors: Array<{
-    type: CarouselValidationError;
-    message: string;
-    field?: string;
-  }>;
-
-  /** Non-critical warnings (logged but don't block rendering) */
-  warnings: Array<{
-    type: CarouselValidationError;
-    message: string;
-    field?: string;
-  }>;
 }
 
 /**
