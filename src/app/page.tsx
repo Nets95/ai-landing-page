@@ -1,3 +1,4 @@
+import { Header } from '@/components/layout/Header';
 import { Hero } from '@/components/sections/Hero';
 import { TechShowcase } from '@/components/sections/TechShowcase';
 import { Portfolio } from '@/components/sections/Portfolio';
@@ -14,6 +15,12 @@ export default function Home() {
       >
         Skip to main content
       </a>
+
+      {/* Fixed Header with Navigation */}
+      <Header />
+
+      {/* Spacer for fixed header */}
+      <div className="h-[80px]" aria-hidden="true" />
 
       <main id="main-content" className="min-h-screen">
         {/* Hero Section */}

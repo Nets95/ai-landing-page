@@ -3,15 +3,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
-import { GradientText } from '@/components/ui/GradientText';
-import contentData from '@/data/content.json';
+import { HeroCarousel } from '@/components/sections/HeroCarousel';
+import carouselData from '@/data/carousel.json';
 
 export const Hero: React.FC = () => {
-  const { hero } = contentData;
-
-  const handleScrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+  const handleScrollToNext = () => {
+    const element = document.getElementById('tech-showcase');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -20,108 +17,38 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden ambient-gradient"
+      className="relative overflow-hidden"
     >
-      {/* Large Ambient Gradient Background - T012 - Enhanced contrast */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Primary ambient gradient (sage green from top-left) - increased from 0.06 to 0.15 */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 85% 65% at 20% 30%, rgba(107, 130, 112, 0.15) 0%, rgba(107, 130, 112, 0.08) 35%, transparent 60%)',
-          }}
-        />
-        {/* Secondary ambient gradient (earth beige from bottom-right) - increased from 0.04 to 0.10 */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 75% 55% at 80% 70%, rgba(168, 147, 131, 0.10) 0%, rgba(168, 147, 131, 0.05) 35%, transparent 60%)',
-          }}
-        />
-        {/* Tertiary ambient gradient (olive from center-bottom for depth) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 60% 40% at 50% 85%, rgba(122, 131, 102, 0.08) 0%, transparent 50%)',
-          }}
+      {/* Hero Carousel - Positioned below header */}
+      <div className="relative w-full" style={{ height: '70vh' }}>
+        <HeroCarousel
+          slides={carouselData.slides}
+          config={carouselData.config}
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto container-padding">
-        <div className="flex flex-col items-center justify-center text-center space-y-8 py-20">
-          {/* Headline with muted gradient text - T013 */}
-          <motion.h1
-            className="hero-headline max-w-5xl"
-            initial={{ opacity: 0.9, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: 'easeOut' }}
-          >
-            <GradientText variant="sage-earth">{hero.headline}</GradientText>
-          </motion.h1>
-
-          {/* Subtitle with refined typography - T014 */}
-          <motion.p
-            className="body-text max-w-3xl text-text-secondary"
-            initial={{ opacity: 0.9, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
-          >
-            {hero.tagline}
-          </motion.p>
-
-          {/* CTA Buttons with reduced glow intensity - T015 */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 mt-8"
-            initial={{ opacity: 0.9, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.25, ease: 'easeOut' }}
-          >
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => handleScrollToSection('portfolio')}
-              aria-label="View portfolio projects"
-            >
-              {hero.cta.primary}
-            </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              onClick={() => handleScrollToSection('contact')}
-              aria-label="Get in touch"
-            >
-              {hero.cta.secondary}
-            </Button>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator with subtle animation - T016 */}
+      {/* Scroll Indicator - positioned at bottom */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-        initial={{ opacity: 0.9, y: -6 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 0.4,
-          delay: 0.35,
+          duration: 0.6,
+          delay: 0.5,
           ease: 'easeOut',
         }}
-        onClick={() => handleScrollToSection('tech-showcase')}
+        onClick={handleScrollToNext}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            handleScrollToSection('tech-showcase');
+            handleScrollToNext();
           }
         }}
         aria-label="Scroll down to technology showcase section"
       >
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{
             duration: 2,
             repeat: Infinity,
@@ -129,10 +56,13 @@ export const Hero: React.FC = () => {
           }}
           className="flex flex-col items-center space-y-2"
         >
-          <span className="text-text-muted text-sm font-medium">
+          <span className="text-white/80 text-sm font-medium drop-shadow-lg">
             Scroll to explore
           </span>
-          <ChevronDown className="w-6 h-6 text-text-muted" aria-hidden="true" />
+          <ChevronDown
+            className="w-6 h-6 text-white/80 drop-shadow-lg"
+            aria-hidden="true"
+          />
         </motion.div>
       </motion.div>
     </section>

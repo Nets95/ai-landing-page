@@ -1,0 +1,35 @@
+{
+  "config": {
+    "autoPlayInterval": 5000,
+    "transitionDuration": 800,
+    "textAnimationDuration": 500,
+    "pauseOnHover": true,
+    "respectReducedMotion": true
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "image": "/images/carousel/Gemini_Generated_Image_8ic3kn8ic3kn8ic3.png",
+      "imageAlt": "Futuristic armored figure with glowing green chest in red-toned environment",
+      "headline": "AI-Powered Engineering",
+      "subtitle": "Building intelligent systems that scale",
+      "order": 0
+    },
+    {
+      "id": "slide-2",
+      "image": "/images/carousel/Gemini_Generated_Image_hxqkybhxqkybhxqk.png",
+      "imageAlt": "Blue-toned sci-fi scene with advanced technology elements",
+      "headline": "Next-Gen Solutions",
+      "subtitle": "Transforming ideas into reality",
+      "order": 1
+    },
+    {
+      "id": "slide-3",
+      "image": "/images/carousel/Gemini_Generated_Image_owf50owf50owf50o.png",
+      "imageAlt": "Advanced armored figure with blue glowing elements in red atmosphere",
+      "headline": "Innovation at Scale",
+      "subtitle": "Engineering the future, today",
+      "order": 2
+    }
+  ]
+}
