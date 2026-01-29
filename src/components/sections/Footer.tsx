@@ -11,6 +11,12 @@ export default function Footer() {
 
   // T004: Smooth scroll handler (reusing pattern from Hero.tsx)
   const handleScrollToSection = (sectionId: string) => {
+    // Special handling for Home - scroll to top
+    if (sectionId === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -52,7 +58,10 @@ export default function Footer() {
               <li key={link.id}>
                 <button
                   onClick={() => handleScrollToSection(link.id)}
-                  className="text-text-secondary hover:text-accent-sage-light transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-sage focus:ring-offset-2 focus:ring-offset-bg-secondary"
+                  className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 uppercase tracking-wide text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-bg-secondary"
+                  style={{
+                    textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
+                  }}
                   aria-label={`Navigate to ${link.name} section`}
                 >
                   {link.name}
@@ -64,7 +73,14 @@ export default function Footer() {
 
         {/* T010, T013: Social Links with "Connect with me" heading */}
         <div className="mb-8">
-          <p className="text-center text-text-muted text-sm mb-4">Connect with me</p>
+          <p
+            className="text-center text-cyan-300/70 text-sm mb-4 uppercase tracking-wider"
+            style={{
+              textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+            }}
+          >
+            Connect with me
+          </p>
           <div className="flex justify-center gap-6">
             {socialLinks.map((social) => {
               const Icon = social.icon;
@@ -74,7 +90,10 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text-muted hover:text-accent-sage-light transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-sage focus:ring-offset-2 focus:ring-offset-bg-secondary"
+                  className="text-cyan-300/60 hover:text-cyan-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-bg-secondary"
+                  style={{
+                    filter: 'drop-shadow(0 0 5px rgba(103, 232, 249, 0.5))',
+                  }}
                   aria-label={`Visit ${social.name} profile`}
                 >
                   <Icon className="w-6 h-6" />
@@ -85,8 +104,14 @@ export default function Footer() {
         </div>
 
         {/* T011, T012: Copyright with dynamic year - now using centralized content.json */}
-        <div className="text-center text-text-muted text-sm">
-          <p>© {currentYear} {content.owner.name}. All rights reserved.</p>
+        <div className="text-center text-cyan-300/60 text-sm tracking-wide">
+          <p
+            style={{
+              textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+            }}
+          >
+            © {currentYear} {content.owner.name}. All rights reserved.
+          </p>
         </div>
       </motion.div>
     </footer>

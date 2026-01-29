@@ -33,7 +33,7 @@ export const TechShowcase: React.FC = () => {
     <section
       id="tech-showcase"
       className="section-padding relative overflow-hidden"
-      style={{ background: 'var(--bg-secondary)' }}
+      style={{ background: 'var(--bg-secondary)', scrollMarginTop: '100px' }}
     >
       {/* T024: Subtle ambient gradient background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -48,23 +48,37 @@ export const TechShowcase: React.FC = () => {
 
       <div className="container mx-auto container-padding relative z-10">
         <AnimatedSection className="space-y-12">
-          {/* Section Header - T026 */}
+          {/* Section Header - Cyberpunk Neon Style */}
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <motion.h2
-              className="section-headline gradient-text-subtle"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-cyan-400 tracking-wide uppercase"
               initial={{ opacity: 0.9, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.4 }}
+              style={{
+                textShadow: `
+                  0 0 10px rgba(34, 211, 238, 0.8),
+                  0 0 20px rgba(34, 211, 238, 0.6),
+                  0 0 30px rgba(34, 211, 238, 0.4),
+                  0 0 40px rgba(6, 182, 212, 0.3)
+                `,
+              }}
             >
               {techShowcase.headline}
             </motion.h2>
             <motion.p
-              className="body-text text-text-secondary"
+              className="text-lg md:text-xl text-cyan-300/90 tracking-wide"
               initial={{ opacity: 0.9, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.4, delay: 0.1 }}
+              style={{
+                textShadow: `
+                  0 0 5px rgba(103, 232, 249, 0.5),
+                  0 0 10px rgba(103, 232, 249, 0.3)
+                `,
+              }}
             >
               {techShowcase.subtitle}
             </motion.p>
@@ -84,9 +98,20 @@ export const TechShowcase: React.FC = () => {
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 ${
                   activeCategory === category
-                    ? 'bg-accent-sage text-white shadow-glow-subtle border border-accent-sage'
-                    : 'bg-transparent border border-border-default text-text-secondary hover:border-border-hover hover:text-text-primary hover:bg-accent-sage/5'
+                    ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500'
+                    : 'bg-transparent border border-cyan-900/50 text-cyan-300/60 hover:border-cyan-500/50 hover:text-cyan-300 hover:bg-cyan-500/10'
                 }`}
+                style={
+                  activeCategory === category
+                    ? {
+                        boxShadow: `
+                          0 0 10px rgba(6, 182, 212, 0.4),
+                          0 0 20px rgba(6, 182, 212, 0.2),
+                          inset 0 0 10px rgba(6, 182, 212, 0.1)
+                        `,
+                      }
+                    : {}
+                }
                 aria-label={`Filter by ${category}`}
                 aria-pressed={activeCategory === category}
               >

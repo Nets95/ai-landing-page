@@ -37,8 +37,8 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="section-padding relative overflow-hidden"
-      style={{ background: 'var(--bg-secondary)' }}
+      className="py-12 md:py-16 px-6 relative overflow-hidden"
+      style={{ background: 'var(--bg-secondary)', minHeight: '100vh', scrollMarginTop: '100px' }}
     >
       {/* T045: Subtle ambient gradient background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -52,22 +52,48 @@ export default function Contact() {
       </div>
 
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto"
+        className="relative z-10 max-w-7xl mx-auto h-full flex flex-col"
         variants={staggerChildren}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {/* Section header - T045: Refined styling */}
-        <motion.div className="text-center mb-16" variants={fadeInUp}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-heading">
-            <span className="gradient-text-sage-earth">
+        {/* Section header - Cyberpunk Neon Style */}
+        <motion.div className="text-center mb-10" variants={fadeInUp}>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-heading tracking-wide uppercase">
+            <span
+              className="text-cyan-400"
+              style={{
+                textShadow: `
+                  0 0 10px rgba(34, 211, 238, 0.8),
+                  0 0 20px rgba(34, 211, 238, 0.6),
+                  0 0 30px rgba(34, 211, 238, 0.4),
+                  0 0 40px rgba(6, 182, 212, 0.3)
+                `,
+              }}
+            >
               Let&apos;s Build Something
             </span>
             <br />
-            <span className="text-text-primary">Amazing Together</span>
+            <span
+              className="text-magenta-400"
+              style={{
+                textShadow: `
+                  0 0 10px rgba(236, 72, 153, 0.8),
+                  0 0 20px rgba(236, 72, 153, 0.6),
+                  0 0 30px rgba(236, 72, 153, 0.4)
+                `,
+              }}
+            >
+              Amazing Together
+            </span>
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p
+            className="text-base text-cyan-300/90 max-w-2xl mx-auto tracking-wide"
+            style={{
+              textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
+            }}
+          >
             Have a project in mind? Want to discuss AI opportunities? I&apos;d
             love to hear from you. Drop me a message and I&apos;ll get back to
             you within 24 hours.
@@ -75,63 +101,99 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact content - side by side layout - items-stretch for equal heights */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch flex-1">
           {/* Contact form */}
           <motion.div variants={fadeInUp} className="flex flex-col">
             <ContactForm />
           </motion.div>
 
           {/* Contact information - T045: Refined card styling */}
-          <motion.div className="flex flex-col gap-8 h-full" variants={fadeInUp}>
+          <motion.div className="flex flex-col gap-4 h-full" variants={fadeInUp}>
             {/* Contact info card - flex-1 to grow and fill space */}
-            <div className="card-minimal p-8 flex-1 flex flex-col">
-              <h3 className="text-2xl font-bold text-text-primary font-heading mb-6">
+            <div className="card-minimal p-6 flex-1 flex flex-col">
+              <h3
+                className="text-xl font-bold text-cyan-400 font-heading mb-5 uppercase tracking-wider text-left"
+                style={{
+                  textShadow: '0 0 10px rgba(34, 211, 238, 0.6), 0 0 20px rgba(34, 211, 238, 0.4)',
+                }}
+              >
                 Get in Touch
               </h3>
 
-              <div className="space-y-6 flex-1">
-                <div>
-                  <h4 className="text-sm font-semibold text-text-muted uppercase tracking-wider mb-2">
+              <div className="space-y-5 flex-1">
+                {/* Direct Email */}
+                <div className="text-left">
+                  <h4
+                    className="text-xs font-bold text-cyan-300/70 uppercase tracking-widest mb-2"
+                    style={{
+                      textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+                    }}
+                  >
                     Direct Email
                   </h4>
                   <a
                     href={`mailto:${content.social.email}`}
-                    className="text-lg text-text-primary hover:text-accent-sage-light transition-colors flex items-center gap-2"
+                    className="text-sm text-cyan-300 hover:text-cyan-400 transition-all duration-300 inline-flex items-center gap-2 group"
+                    style={{
+                      textShadow: '0 0 5px rgba(103, 232, 249, 0.5)',
+                    }}
                   >
-                    <Mail className="w-5 h-5" />
-                    {content.social.email}
+                    <Mail className="w-4 h-4 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <span className="break-all">{content.social.email}</span>
                   </a>
                 </div>
 
-                <div>
-                  <h4 className="text-sm font-semibold text-text-muted uppercase tracking-wider mb-2">
+                {/* Response Time */}
+                <div className="text-left">
+                  <h4
+                    className="text-xs font-bold text-cyan-300/70 uppercase tracking-widest mb-2"
+                    style={{
+                      textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+                    }}
+                  >
                     Response Time
                   </h4>
-                  <p className="text-text-secondary">
+                  <p
+                    className="text-sm text-cyan-300/80 leading-relaxed"
+                    style={{
+                      textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+                    }}
+                  >
                     Usually within 24 hours during business days
                   </p>
                 </div>
 
-                <div>
-                  <h4 className="text-sm font-semibold text-text-muted uppercase tracking-wider mb-2">
+                {/* Available For */}
+                <div className="text-left">
+                  <h4
+                    className="text-xs font-bold text-cyan-300/70 uppercase tracking-widest mb-2"
+                    style={{
+                      textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+                    }}
+                  >
                     Available For
                   </h4>
-                  <ul className="space-y-2 text-text-secondary">
-                    <li className="flex items-start">
-                      <span className="text-accent-sage mr-2">•</span>
-                      AI/ML consulting and strategy
+                  <ul
+                    className="space-y-2 text-sm text-cyan-300/80"
+                    style={{
+                      textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+                    }}
+                  >
+                    <li className="flex items-start gap-2">
+                      <span className="text-cyan-400 text-base mt-0.5 flex-shrink-0">•</span>
+                      <span className="leading-relaxed">AI/ML consulting and strategy</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-accent-sage mr-2">•</span>
-                      LLM application development
+                    <li className="flex items-start gap-2">
+                      <span className="text-cyan-400 text-base mt-0.5 flex-shrink-0">•</span>
+                      <span className="leading-relaxed">LLM application development</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-accent-sage mr-2">•</span>
-                      Full-stack AI integrations
+                    <li className="flex items-start gap-2">
+                      <span className="text-cyan-400 text-base mt-0.5 flex-shrink-0">•</span>
+                      <span className="leading-relaxed">Full-stack AI integrations</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-accent-sage mr-2">•</span>
-                      Technical workshops and talks
+                    <li className="flex items-start gap-2">
+                      <span className="text-cyan-400 text-base mt-0.5 flex-shrink-0">•</span>
+                      <span className="leading-relaxed">Technical workshops and talks</span>
                     </li>
                   </ul>
                 </div>
@@ -139,12 +201,17 @@ export default function Contact() {
             </div>
 
             {/* Social links */}
-            <div className="card-minimal p-8 flex-shrink-0">
-              <h3 className="text-xl font-bold text-text-primary font-heading mb-6">
+            <div className="card-minimal p-6 flex-shrink-0">
+              <h3
+                className="text-lg font-bold text-cyan-400 font-heading mb-4 uppercase tracking-wider text-left"
+                style={{
+                  textShadow: '0 0 10px rgba(34, 211, 238, 0.6), 0 0 20px rgba(34, 211, 238, 0.4)',
+                }}
+              >
                 Connect on Social
               </h3>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -154,12 +221,25 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="flex items-center gap-3 p-4 rounded-xl bg-transparent border border-border-default hover:border-border-hover transition-all duration-300 group"
+                      className="flex items-center justify-start gap-2 p-3 rounded-xl bg-transparent border border-cyan-900/50 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300 group"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
+                      style={{
+                        boxShadow: '0 0 5px rgba(6, 182, 212, 0.1)',
+                      }}
                     >
-                      <Icon className="w-6 h-6 text-text-muted group-hover:text-accent-sage-light transition-colors" />
-                      <span className="text-text-secondary group-hover:text-text-primary transition-colors font-medium">
+                      <Icon
+                        className="w-5 h-5 flex-shrink-0 text-cyan-300/60 group-hover:text-cyan-400 transition-colors"
+                        style={{
+                          filter: 'drop-shadow(0 0 3px rgba(103, 232, 249, 0.4))',
+                        }}
+                      />
+                      <span
+                        className="text-cyan-300/80 group-hover:text-cyan-300 transition-colors font-medium text-left text-sm"
+                        style={{
+                          textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+                        }}
+                      >
                         {social.name}
                       </span>
                     </motion.a>

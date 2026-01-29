@@ -16,16 +16,23 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({
   icon,
   proficiency,
 }) => {
-  // T023: Muted proficiency badge colors
+  // Neon proficiency badge colors
   const proficiencyColors = {
     beginner:
-      'bg-semantic-info/20 text-semantic-info border border-semantic-info/30',
+      'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50',
     intermediate:
-      'bg-semantic-warning/20 text-semantic-warning border border-semantic-warning/30',
+      'bg-purple-500/20 text-purple-300 border border-purple-500/50',
     advanced:
-      'bg-accent-earth/20 text-accent-earth-light border border-accent-earth/30',
+      'bg-magenta-500/20 text-magenta-300 border border-magenta-500/50',
     expert:
-      'bg-accent-sage/20 text-accent-sage-light border border-accent-sage/30',
+      'bg-cyan-400/30 text-cyan-200 border border-cyan-400',
+  };
+  
+  const proficiencyShadows = {
+    beginner: { textShadow: '0 0 5px rgba(103, 232, 249, 0.5)' },
+    intermediate: { textShadow: '0 0 5px rgba(168, 85, 247, 0.5)' },
+    advanced: { textShadow: '0 0 5px rgba(236, 72, 153, 0.5)' },
+    expert: { textShadow: '0 0 8px rgba(34, 211, 238, 0.7)' },
   };
 
   return (
@@ -42,28 +49,44 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({
           </div>
           {proficiency && (
             <span
-              className={`text-xs px-3 py-1 rounded-full font-medium ${
+              className={`text-xs px-3 py-1 rounded-full font-medium uppercase tracking-wide ${
                 proficiencyColors[proficiency]
               }`}
+              style={proficiencyShadows[proficiency]}
             >
               {proficiency}
             </span>
           )}
         </div>
 
-        {/* Content - T021 */}
+        {/* Content - Neon Cyberpunk Style */}
         <div className="flex-1 space-y-2">
-          <h3 className="text-xl font-semibold text-text-primary font-heading group-hover:text-accent-sage-light transition-colors duration-300">
+          <h3
+            className="text-xl font-semibold text-cyan-400 font-heading group-hover:text-cyan-300 transition-all duration-300 tracking-wide"
+            style={{
+              textShadow: '0 0 8px rgba(34, 211, 238, 0.6), 0 0 15px rgba(34, 211, 238, 0.4)',
+            }}
+          >
             {name}
           </h3>
-          <p className="text-sm text-text-muted leading-relaxed">
+          <p
+            className="text-sm text-cyan-300/60 leading-relaxed"
+            style={{
+              textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+            }}
+          >
             {description}
           </p>
         </div>
 
-        {/* T022: Subtle hover glow effect */}
+        {/* Neon glow effect on hover */}
         <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <div className="absolute inset-0 rounded-xl shadow-glow-minimal" />
+          <div
+            className="absolute inset-0 rounded-xl"
+            style={{
+              boxShadow: '0 0 15px rgba(6, 182, 212, 0.4), 0 0 30px rgba(6, 182, 212, 0.2)',
+            }}
+          />
         </div>
       </Card>
     </motion.div>

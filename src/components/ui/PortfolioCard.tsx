@@ -74,42 +74,70 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
 
         {/* Content - T030: Refined styling */}
         <div className="p-6 space-y-4">
-          {/* Title */}
-          <h3 className="text-xl font-bold text-text-primary font-heading group-hover:text-accent-sage-light transition-colors duration-300">
+          {/* Title - Neon Cyberpunk Style */}
+          <h3
+            className="text-xl font-bold text-cyan-400 font-heading group-hover:text-cyan-300 transition-all duration-300 tracking-wide"
+            style={{
+              textShadow: '0 0 8px rgba(34, 211, 238, 0.6), 0 0 15px rgba(34, 211, 238, 0.4)',
+            }}
+          >
             {title}
           </h3>
 
           {/* Description */}
-          <p className="text-sm text-text-muted leading-relaxed line-clamp-2">
+          <p
+            className="text-sm text-cyan-300/60 leading-relaxed line-clamp-2"
+            style={{
+              textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+            }}
+          >
             {description}
           </p>
 
-          {/* T033: Technology tags with soft borders */}
+          {/* Technology tags - Neon Style */}
           <div className="flex flex-wrap gap-2">
             {technologies.slice(0, 4).map((tech, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-xs font-medium rounded-lg bg-transparent text-text-secondary border border-border-default hover:border-border-hover transition-colors"
+                className="px-3 py-1 text-xs font-medium rounded-lg bg-cyan-500/10 text-cyan-300 border border-cyan-900/50 hover:border-cyan-500/50 hover:bg-cyan-500/20 transition-all duration-300"
+                style={{
+                  textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+                }}
               >
                 {tech}
               </span>
             ))}
             {technologies.length > 4 && (
-              <span className="px-3 py-1 text-xs font-medium rounded-lg bg-transparent text-text-secondary border border-border-default">
+              <span
+                className="px-3 py-1 text-xs font-medium rounded-lg bg-cyan-500/10 text-cyan-300 border border-cyan-900/50"
+                style={{
+                  textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+                }}
+              >
                 +{technologies.length - 4}
               </span>
             )}
           </div>
 
-          {/* Outcomes */}
+          {/* Outcomes - Neon Style */}
           {outcomes.length > 0 && (
-            <div className="pt-4 border-t border-border-divider space-y-2">
+            <div className="pt-4 border-t border-cyan-900/30 space-y-2">
               {outcomes.slice(0, 2).map((outcome, index) => (
                 <div key={index} className="flex justify-between items-center">
-                  <span className="text-xs text-text-muted">
+                  <span
+                    className="text-xs text-cyan-300/60"
+                    style={{
+                      textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+                    }}
+                  >
                     {outcome.metric}
                   </span>
-                  <span className="text-sm font-semibold text-accent-sage-light">
+                  <span
+                    className="text-sm font-semibold text-cyan-400"
+                    style={{
+                      textShadow: '0 0 8px rgba(34, 211, 238, 0.5)',
+                    }}
+                  >
                     {outcome.value}
                   </span>
                 </div>
@@ -118,11 +146,21 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
           )}
         </div>
 
-        {/* View Details Indicator */}
+        {/* View Details Indicator - Neon Style */}
         <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="flex items-center gap-2 text-xs text-accent-sage-light font-semibold">
+          <div
+            className="flex items-center gap-2 text-xs text-cyan-400 font-semibold uppercase tracking-wider"
+            style={{
+              textShadow: '0 0 8px rgba(34, 211, 238, 0.7), 0 0 15px rgba(34, 211, 238, 0.5)',
+            }}
+          >
             <span>View Details</span>
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink
+              className="w-4 h-4"
+              style={{
+                filter: 'drop-shadow(0 0 3px rgba(34, 211, 238, 0.7))',
+              }}
+            />
           </div>
         </div>
       </Card>

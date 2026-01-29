@@ -115,7 +115,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="card-minimal p-8 flex flex-col h-full">
+    <div className="card-minimal p-6 flex flex-col h-full">
       <AnimatePresence mode="wait">
         {submissionState === 'success' ? (
           <motion.div
@@ -135,10 +135,20 @@ export default function ContactForm() {
             >
               <CheckCircle className="w-8 h-8 text-accent-sage-light" />
             </motion.div>
-            <h3 className="text-2xl font-bold text-text-primary font-heading mb-3">
+            <h3
+              className="text-2xl font-bold text-cyan-400 font-heading mb-3 uppercase tracking-wide"
+              style={{
+                textShadow: '0 0 10px rgba(34, 211, 238, 0.7), 0 0 20px rgba(34, 211, 238, 0.5)',
+              }}
+            >
               Message Sent Successfully!
             </h3>
-            <p className="text-text-secondary mb-6">
+            <p
+              className="text-cyan-300/80 mb-6"
+              style={{
+                textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+              }}
+            >
               Thank you for reaching out. I&apos;ll get back to you within 24
               hours.
             </p>
@@ -156,13 +166,16 @@ export default function ContactForm() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4"
+            className="space-y-3"
           >
             {/* Name field */}
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-text-secondary mb-2"
+                className="block text-xs font-medium text-cyan-300 mb-1.5 uppercase tracking-wide"
+                style={{
+                  textShadow: '0 0 5px rgba(103, 232, 249, 0.5)',
+                }}
               >
                 Name *
               </label>
@@ -171,13 +184,13 @@ export default function ContactForm() {
                 type="text"
                 id="name"
                 disabled={submissionState === 'submitting'}
-                className="input"
+                className="input input-compact"
                 placeholder="Your full name"
                 aria-invalid={errors.name ? 'true' : 'false'}
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
               {/* Fixed height container for error message */}
-              <div className="h-6 mt-2">
+              <div className="h-5 mt-1">
                 {errors.name && (
                   <motion.p
                     id="name-error"
@@ -198,7 +211,10 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-text-secondary mb-2"
+                className="block text-xs font-medium text-cyan-300 mb-1.5 uppercase tracking-wide"
+                style={{
+                  textShadow: '0 0 5px rgba(103, 232, 249, 0.5)',
+                }}
               >
                 Email *
               </label>
@@ -207,13 +223,13 @@ export default function ContactForm() {
                 type="email"
                 id="email"
                 disabled={submissionState === 'submitting'}
-                className="input"
+                className="input input-compact"
                 placeholder="your@email.com"
                 aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
               {/* Fixed height container for error message */}
-              <div className="h-6 mt-2">
+              <div className="h-5 mt-1">
                 {errors.email && (
                   <motion.p
                     id="email-error"
@@ -234,7 +250,10 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="inquiryType"
-                className="block text-sm font-medium text-text-secondary mb-2"
+                className="block text-xs font-medium text-cyan-300 mb-1.5 uppercase tracking-wide"
+                style={{
+                  textShadow: '0 0 5px rgba(103, 232, 249, 0.5)',
+                }}
               >
                 Inquiry Type
               </label>
@@ -242,7 +261,7 @@ export default function ContactForm() {
                 {...register('inquiryType')}
                 id="inquiryType"
                 disabled={submissionState === 'submitting'}
-                className="input"
+                className="input input-compact"
                 aria-describedby={
                   errors.inquiryType ? 'inquiryType-error' : undefined
                 }
@@ -253,7 +272,7 @@ export default function ContactForm() {
                 <option value="general">General Inquiry</option>
               </select>
               {/* Fixed height container for error message */}
-              <div className="h-6 mt-2">
+              <div className="h-5 mt-1">
                 {errors.inquiryType && (
                   <motion.p
                     id="inquiryType-error"
@@ -274,22 +293,25 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-text-secondary mb-2"
+                className="block text-xs font-medium text-cyan-300 mb-1.5 uppercase tracking-wide"
+                style={{
+                  textShadow: '0 0 5px rgba(103, 232, 249, 0.5)',
+                }}
               >
                 Message *
               </label>
               <textarea
                 {...register('message')}
                 id="message"
-                rows={6}
+                rows={4}
                 disabled={submissionState === 'submitting'}
-                className="input resize-none"
+                className="input input-compact resize-none"
                 placeholder="Tell me about your project or inquiry..."
                 aria-invalid={errors.message ? 'true' : 'false'}
                 aria-describedby={errors.message ? 'message-error' : undefined}
               />
               {/* Fixed height container for error message */}
-              <div className="h-6 mt-2">
+              <div className="h-5 mt-1">
                 {errors.message && (
                   <motion.p
                     id="message-error"
@@ -326,7 +348,7 @@ export default function ContactForm() {
             <Button
               type="submit"
               variant="primary"
-              size="lg"
+              size="md"
               disabled={submissionState === 'submitting'}
               className="w-full"
             >
