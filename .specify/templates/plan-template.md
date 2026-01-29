@@ -31,15 +31,7 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-This feature plan MUST comply with all constitutional principles:
-
-- [ ] **Code Quality Excellence**: Plan includes code review checkpoints, linting setup, type safety approach
-- [ ] **Testing Standards**: Test strategy defined (80% coverage target, TDD approach, test pyramid structure)
-- [ ] **UX Consistency**: Design system usage confirmed, accessibility requirements documented, responsive design planned
-- [ ] **Performance Requirements**: Performance budgets established (Core Web Vitals targets, bundle size limits, API response times)
-- [ ] **UI Excellence**: Visual hierarchy defined, interaction patterns specified, mobile optimization planned
-
-**Complexity Justification** (if any principles violated): [Document any deviations with rationale]
+[Gates determined based on constitution file]
 
 ## Project Structure
 

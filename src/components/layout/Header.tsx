@@ -33,6 +33,13 @@ export const Header: React.FC = () => {
   }, []);
 
   const handleNavClick = (href: string) => {
+    // Special handling for Home - scroll to top
+    if (href === '#hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
+      return;
+    }
+    
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -66,7 +73,7 @@ export const Header: React.FC = () => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="text-2xl font-display font-bold text-text-primary hover:text-primary-400 transition-colors"
+              className="text-2xl font-display font-bold neon-text-cyan tracking-wider uppercase transition-all duration-300 hover:scale-105"
               aria-label="Return to top of page"
             >
               AI Engineer
@@ -86,7 +93,10 @@ export const Header: React.FC = () => {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className="text-text-secondary hover:text-primary-400 transition-colors font-medium"
+                className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm"
+                style={{
+                  textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
+                }}
                 aria-label={item.ariaLabel}
               >
                 {item.label}
@@ -94,29 +104,41 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop CTA Buttons */}
+          {/* Desktop Additional Navigation Links */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="hidden md:flex items-center space-x-4"
+            className="hidden md:flex items-center space-x-8"
           >
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={() => handleNavClick('#portfolio')}
+            <a
+              href="#portfolio"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#portfolio');
+              }}
+              className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm"
+              style={{
+                textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
+              }}
               aria-label="View portfolio projects"
             >
               View Projects
-            </Button>
-            <Button
-              variant="primary"
-              size="sm"
-              onClick={() => handleNavClick('#contact')}
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#contact');
+              }}
+              className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm"
+              style={{
+                textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
+              }}
               aria-label="Get in touch"
             >
               Get in Touch
-            </Button>
+            </a>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -150,33 +172,46 @@ export const Header: React.FC = () => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  className="text-text-secondary hover:text-primary-400 transition-colors font-medium py-2"
+                  className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm py-2"
+                  style={{
+                    textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
+                  }}
                   aria-label={item.ariaLabel}
                 >
                   {item.label}
                 </a>
               ))}
 
-              {/* Mobile CTA Buttons */}
+              {/* Mobile Additional Navigation Links */}
               <div className="flex flex-col space-y-3 pt-4 border-t border-border">
-                <Button
-                  variant="secondary"
-                  size="md"
-                  onClick={() => handleNavClick('#portfolio')}
+                <a
+                  href="#portfolio"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick('#portfolio');
+                  }}
+                  className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm py-2"
+                  style={{
+                    textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
+                  }}
                   aria-label="View portfolio projects"
-                  className="w-full"
                 >
                   View Projects
-                </Button>
-                <Button
-                  variant="primary"
-                  size="md"
-                  onClick={() => handleNavClick('#contact')}
+                </a>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick('#contact');
+                  }}
+                  className="text-cyan-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm py-2"
+                  style={{
+                    textShadow: '0 0 5px rgba(103, 232, 249, 0.5), 0 0 10px rgba(103, 232, 249, 0.3)',
+                  }}
                   aria-label="Get in touch"
-                  className="w-full"
                 >
                   Get in Touch
-                </Button>
+                </a>
               </div>
             </nav>
           </motion.div>

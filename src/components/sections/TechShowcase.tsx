@@ -33,7 +33,7 @@ export const TechShowcase: React.FC = () => {
     <section
       id="tech-showcase"
       className="section-padding relative overflow-hidden"
-      style={{ background: 'var(--bg-secondary)' }}
+      style={{ background: 'var(--bg-secondary)', scrollMarginTop: '100px' }}
     >
       {/* T024: Subtle ambient gradient background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">

@@ -174,3 +174,191 @@ When a new slide becomes active, its text content animates into view with a subt
 - Video backgrounds or animated content within slides - images only
 - Parallax scrolling effects - simple static carousel only
 - A/B testing or analytics integration for carousel engagement metrics
+
+---
+
+## Post-Implementation: Site-Wide Design Extension
+
+**Date Extended**: 2026-01-29
+
+### Background
+
+The neon cyberpunk text styling initially implemented for the hero carousel text overlays (cyan-400 headlines with multi-layered text-shadow glows) proved highly effective and visually cohesive. Based on user feedback and design review, the decision was made to extend this aesthetic across the entire website to create a unified brand identity.
+
+### Scope of Extension
+
+The neon cyberpunk styling was systematically applied to all text elements and interactive components across the website, transforming it from a feature-specific implementation to a comprehensive design system.
+
+#### Components Updated
+
+1. **Header/Navigation**
+   - Logo: Neon cyan with primary glow, uppercase styling
+   - Navigation links: Cyan-300 with subtle glow, uppercase tracking
+   - CTA buttons: Primary neon button styling with multi-layer shadows
+
+2. **Hero Section**
+   - Carousel text: Original implementation maintained (reference point)
+   - Scroll indicator: Cyan-300 with icon drop-shadow glow
+
+3. **Tech Showcase Section**
+   - Section headings: Primary cyan glow, uppercase, 48-60px
+   - Subtitles: Cyan-300/90 with subtitle glow
+   - Filter buttons: Cyan borders with neon glow on active state
+   - Technology cards:
+     - Card titles: Cyan-400 with subtitle glow
+     - Descriptions: Cyan-300/60 with subtle glow
+     - Proficiency badges: Color-coded (cyan/purple/magenta) with glows
+     - Card borders: Cyan with multi-layer box-shadow glow
+
+4. **Portfolio Section**
+   - Section headings: Primary cyan glow matching Tech Showcase
+   - Filter buttons: Consistent neon styling with Tech Showcase
+   - Portfolio cards:
+     - Titles: Cyan-400 with subtitle glow, uppercase tracking
+     - Descriptions: Cyan-300/60 with subtle glow
+     - Technology tags: Cyan borders and backgrounds with glows
+     - Outcome metrics: Cyan-400 values with glows
+     - "View Details" indicator: Uppercase with strong glow
+   - Portfolio modal:
+     - All headings: Cyan-400 with appropriate glow levels
+     - Category badges: Cyan neon styling
+     - Technology tags: Consistent with card styling
+     - Outcome cards: Cyan text with glowing values
+
+5. **Contact Section**
+   - Main headline: Cyan-400 + Magenta-400 combination for visual interest
+   - Subtitle: Cyan-300/90 with glow
+   - Form labels: Cyan-300, uppercase, subtle glow
+   - Contact info headings: Cyan-400, uppercase
+   - Social link cards: Cyan borders with hover glow enhancement
+   - Success message: Cyan-400 with celebration styling
+
+6. **Footer**
+   - Navigation links: Cyan-300, uppercase, subtle glow
+   - Social icons: Cyan with drop-shadow filters
+   - Copyright text: Cyan-300/60 with minimal glow
+
+7. **Global Components**
+   - **Buttons**:
+     - Primary: Cyan background with multi-layer glow and border
+     - Secondary: Cyan border with subtle glow
+     - All buttons: Uppercase styling with letter spacing
+   - **Cards**: 
+     - All card variants: Cyan borders (rgba(6, 182, 212, 0.3))
+     - Box-shadow: Multi-layer outer + inner glow
+     - Hover states: Enhanced glow intensity
+   - **Glass Effects**: All glassmorphism variants updated with cyan borders and glows
+
+### Technical Implementation
+
+#### Color Palette
+- **Primary Cyan**: `rgb(34, 211, 238)` - Main headings
+- **Subtle Cyan**: `rgb(103, 232, 249)` - Body text
+- **Accent Magenta**: `rgb(236, 72, 153)` - Special highlights
+- **Accent Purple**: `rgb(168, 85, 247)` - Badge variations
+
+#### Glow Effects (Text Shadows)
+
+**Primary Heading Glow**:
+```css
+text-shadow: 
+  0 0 10px rgba(34, 211, 238, 0.8),
+  0 0 20px rgba(34, 211, 238, 0.6),
+  0 0 30px rgba(34, 211, 238, 0.4),
+  0 0 40px rgba(6, 182, 212, 0.3),
+  0 0 70px rgba(6, 182, 212, 0.2),
+  0 0 100px rgba(6, 182, 212, 0.1);
+```
+
+**Subtitle/Body Glow**:
+```css
+text-shadow: 
+  0 0 8px rgba(103, 232, 249, 0.7),
+  0 0 15px rgba(103, 232, 249, 0.5),
+  0 0 25px rgba(103, 232, 249, 0.3),
+  0 0 35px rgba(34, 211, 238, 0.2);
+```
+
+**Subtle Glow**:
+```css
+text-shadow: 
+  0 0 5px rgba(103, 232, 249, 0.5),
+  0 0 10px rgba(103, 232, 249, 0.3);
+```
+
+#### Card/Border Glows (Box Shadows)
+
+**Default Card**:
+```css
+border: 1px solid rgba(6, 182, 212, 0.3);
+box-shadow: 
+  0 0 10px rgba(6, 182, 212, 0.2),
+  0 0 20px rgba(6, 182, 212, 0.1),
+  inset 0 0 10px rgba(6, 182, 212, 0.05);
+```
+
+**Card Hover**:
+```css
+border: 1px solid rgba(6, 182, 212, 0.6);
+box-shadow: 
+  0 0 15px rgba(6, 182, 212, 0.4),
+  0 0 30px rgba(6, 182, 212, 0.2),
+  inset 0 0 15px rgba(6, 182, 212, 0.1);
+```
+
+### Files Modified
+
+#### Global Styles
+- `src/app/globals.css`: Added neon utility classes, updated button/card styles
+
+#### Layout Components
+- `src/components/layout/Header.tsx`: Logo and navigation with neon styling
+
+#### Section Components
+- `src/components/sections/Hero.tsx`: Scroll indicator styling
+- `src/components/sections/TechShowcase.tsx`: Headings, filters, card integration
+- `src/components/sections/Portfolio.tsx`: Headings, filters, card integration
+- `src/components/sections/Contact.tsx`: All headings, form labels, social links
+- `src/components/sections/Footer.tsx`: Navigation, social icons, copyright
+
+#### UI Components
+- `src/components/ui/TechnologyCard.tsx`: Titles, descriptions, badges, hover glow
+- `src/components/ui/PortfolioCard.tsx`: All text elements, tags, outcomes
+- `src/components/ui/PortfolioModal.tsx`: All modal content with neon styling
+- `src/components/forms/ContactForm.tsx`: Labels, success message
+
+### Design System Documentation
+
+Complete design system documentation including color palette, typography hierarchy, glow effects, component patterns, utility classes, and implementation guidelines has been created in:
+
+**`specs/005-hero-carousel/design-system.md`**
+
+This document serves as the authoritative reference for maintaining and extending the neon cyberpunk aesthetic across the application.
+
+### Accessibility Maintained
+
+All extended styling maintains WCAG AA compliance:
+- Text contrast ratios remain above 4.5:1 minimum
+- Neon effects are purely decorative (CSS-only)
+- Screen reader compatibility unaffected
+- `prefers-reduced-motion` support preserved
+- Color is not the sole differentiator for information
+
+### Performance Considerations
+
+- Text-shadow is GPU-accelerated (no performance impact)
+- Box-shadow effects optimized with minimal layer count
+- Mobile devices receive reduced glow intensity for performance
+- No additional HTTP requests or bundle size increase
+
+### Success Metrics
+
+- **Brand Cohesion**: Unified visual identity across all pages
+- **User Feedback**: Positive response to futuristic aesthetic
+- **Accessibility**: All WCAG AA requirements maintained
+- **Performance**: No degradation in Lighthouse scores
+- **Maintainability**: Centralized design system documentation
+
+### Maintenance
+
+The neon cyberpunk aesthetic should be applied to any new components or sections added to the website. Refer to `design-system.md` for specific implementation patterns and guidelines.

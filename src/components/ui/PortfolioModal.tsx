@@ -101,7 +101,13 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/50 to-transparent z-10" />
 
                     {project.featured && (
-                      <div className="absolute top-4 left-4 px-4 py-2 bg-accent-sage/90 backdrop-blur-sm rounded-full text-sm font-semibold text-white border border-accent-sage-light/30 z-20">
+                      <div
+                        className="absolute top-4 left-4 px-4 py-2 bg-cyan-500/20 backdrop-blur-sm rounded-full text-sm font-semibold text-cyan-400 border border-cyan-500 z-20 uppercase tracking-wider"
+                        style={{
+                          textShadow: '0 0 8px rgba(34, 211, 238, 0.7)',
+                          boxShadow: '0 0 15px rgba(6, 182, 212, 0.4)',
+                        }}
+                      >
                         Featured Project
                       </div>
                     )}
@@ -109,39 +115,65 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
 
                   {/* Details */}
                   <div className="p-8 space-y-6">
-                    {/* Title */}
+                    {/* Title - Neon Style */}
                     <h2
                       id="modal-title"
-                      className="text-3xl md:text-4xl font-bold text-text-primary font-heading"
+                      className="text-3xl md:text-4xl font-bold text-cyan-400 font-heading tracking-wide uppercase"
+                      style={{
+                        textShadow: '0 0 10px rgba(34, 211, 238, 0.7), 0 0 20px rgba(34, 211, 238, 0.5)',
+                      }}
                     >
                       {project.title}
                     </h2>
 
-                    {/* Category */}
-                    <div className="inline-block px-4 py-2 bg-transparent rounded-lg text-sm font-medium text-text-secondary border border-border-default">
+                    {/* Category - Neon Style */}
+                    <div
+                      className="inline-block px-4 py-2 bg-cyan-500/10 rounded-lg text-sm font-medium text-cyan-300 border border-cyan-500/50 uppercase tracking-wider"
+                      style={{
+                        textShadow: '0 0 5px rgba(103, 232, 249, 0.5)',
+                      }}
+                    >
                       {project.category}
                     </div>
 
-                    {/* Long Description */}
+                    {/* Long Description - Neon Style */}
                     <div className="space-y-4">
-                      <h3 className="text-xl font-semibold text-text-primary font-heading">
+                      <h3
+                        className="text-xl font-semibold text-cyan-400 font-heading uppercase tracking-wide"
+                        style={{
+                          textShadow: '0 0 8px rgba(34, 211, 238, 0.6)',
+                        }}
+                      >
                         About This Project
                       </h3>
-                      <p className="text-base text-text-secondary leading-relaxed">
+                      <p
+                        className="text-base text-cyan-300/70 leading-relaxed"
+                        style={{
+                          textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+                        }}
+                      >
                         {project.longDescription}
                       </p>
                     </div>
 
-                    {/* Technologies - Muted colors */}
+                    {/* Technologies - Neon Style */}
                     <div className="space-y-3">
-                      <h3 className="text-xl font-semibold text-text-primary font-heading">
+                      <h3
+                        className="text-xl font-semibold text-cyan-400 font-heading uppercase tracking-wide"
+                        style={{
+                          textShadow: '0 0 8px rgba(34, 211, 238, 0.6)',
+                        }}
+                      >
                         Technologies Used
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, index) => (
                           <span
                             key={index}
-                            className="px-4 py-2 text-sm font-medium rounded-lg bg-accent-sage/10 text-accent-sage-light border border-accent-sage/20"
+                            className="px-4 py-2 text-sm font-medium rounded-lg bg-cyan-500/10 text-cyan-300 border border-cyan-500/50"
+                            style={{
+                              textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+                            }}
                           >
                             {tech}
                           </span>
@@ -149,22 +181,37 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
                       </div>
                     </div>
 
-                    {/* Outcomes - Muted colors */}
+                    {/* Outcomes - Neon Style */}
                     {project.outcomes.length > 0 && (
                       <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-text-primary font-heading">
+                        <h3
+                          className="text-xl font-semibold text-cyan-400 font-heading uppercase tracking-wide"
+                          style={{
+                            textShadow: '0 0 8px rgba(34, 211, 238, 0.6)',
+                          }}
+                        >
                           Key Outcomes
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                           {project.outcomes.map((outcome, index) => (
                             <div
                               key={index}
-                              className="glass-light p-4 rounded-lg space-y-2 border border-border-default"
+                              className="glass-light p-4 rounded-lg space-y-2"
                             >
-                              <p className="text-sm text-text-muted">
+                              <p
+                                className="text-sm text-cyan-300/60 uppercase tracking-wide"
+                                style={{
+                                  textShadow: '0 0 5px rgba(103, 232, 249, 0.3)',
+                                }}
+                              >
                                 {outcome.metric}
                               </p>
-                              <p className="text-2xl font-bold text-accent-sage-light">
+                              <p
+                                className="text-2xl font-bold text-cyan-400"
+                                style={{
+                                  textShadow: '0 0 10px rgba(34, 211, 238, 0.7)',
+                                }}
+                              >
                                 {outcome.value}
                               </p>
                             </div>

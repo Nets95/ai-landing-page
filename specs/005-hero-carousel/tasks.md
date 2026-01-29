@@ -345,6 +345,135 @@
 
 ---
 
+## Phase 11: Site-Wide Neon Cyberpunk Extension (Post-Implementation)
+
+**Purpose**: Extend carousel's neon cyberpunk text styling across entire website for unified brand identity
+
+**Date**: 2026-01-29
+
+### Global Styles & Utilities
+
+- [x] T043 [P] Add neon utility classes to globals.css:
+  - .neon-text-cyan (primary heading glow)
+  - .neon-text-cyan-subtle (subtitle glow)
+  - .neon-text-magenta (accent glow)
+  - .neon-text-purple (accent glow)
+  - .neon-glow-cyan (box-shadow glow)
+  - .neon-glow-magenta (box-shadow glow)
+
+- [x] T044 [P] Update button styles with neon cyberpunk aesthetic:
+  - Primary buttons: Cyan background with multi-layer glow
+  - Secondary buttons: Cyan border with subtle glow
+  - All buttons: Uppercase with letter spacing
+  - Enhanced hover states with intensified glows
+
+- [x] T045 [P] Update card styles with neon border glows:
+  - All card variants: Cyan borders (rgba(6, 182, 212, 0.3))
+  - Multi-layer box-shadow (outer + inner glow)
+  - Enhanced glow on hover states
+  - Updated glassmorphism effects with cyan borders
+
+### Layout Components
+
+- [x] T046 Update Header component (src/components/layout/Header.tsx):
+  - Logo: Neon cyan with primary glow, uppercase, tracking
+  - Navigation links: Cyan-300 with subtle glow, uppercase
+  - Hover effects: Intensified glow
+  - Mobile menu: Consistent neon styling
+
+### Section Components
+
+- [x] T047 Update Hero section (src/components/sections/Hero.tsx):
+  - Scroll indicator: Cyan-300 with icon drop-shadow glow
+  - Carousel maintains original neon implementation
+
+- [x] T048 Update TechShowcase section (src/components/sections/TechShowcase.tsx):
+  - Section heading: Primary cyan glow, uppercase, 48-60px
+  - Subtitle: Cyan-300/90 with subtitle glow
+  - Filter buttons: Cyan borders with neon glow on active
+  - Count text: Cyan-300/60 with subtle glow
+
+- [x] T049 Update Portfolio section (src/components/sections/Portfolio.tsx):
+  - Section heading: Primary cyan glow matching TechShowcase
+  - Subtitle: Cyan-300/90 with subtitle glow
+  - Filter buttons: Consistent cyan neon styling
+  - Count text: Cyan-300/60 with subtle glow
+
+- [x] T050 Update Contact section (src/components/sections/Contact.tsx):
+  - Main headline: Cyan-400 + Magenta-400 combination
+  - Subtitle: Cyan-300/90 with glow
+  - Section headings: Cyan-400 uppercase with glow
+  - Contact info: Cyan-300 with subtle glows
+  - List items: Cyan bullet points
+  - Social link cards: Cyan borders with hover glow
+
+- [x] T051 Update Footer component (src/components/sections/Footer.tsx):
+  - Navigation links: Cyan-300, uppercase, subtle glow
+  - Social icons: Cyan with drop-shadow filters
+  - Copyright text: Cyan-300/60 with minimal glow
+
+### UI Components
+
+- [x] T052 Update TechnologyCard (src/components/ui/TechnologyCard.tsx):
+  - Card title: Cyan-400 with subtitle glow, tracking
+  - Description: Cyan-300/60 with subtle glow
+  - Proficiency badges: Color-coded (cyan/purple/magenta) with glows
+  - Hover effect: Enhanced neon box-shadow glow
+
+- [x] T053 Update PortfolioCard (src/components/ui/PortfolioCard.tsx):
+  - Card title: Cyan-400 with subtitle glow, tracking
+  - Description: Cyan-300/60 with subtle glow
+  - Technology tags: Cyan borders/backgrounds with glows
+  - Outcomes: Cyan-400 values with glows
+  - "View Details": Uppercase with strong glow
+
+- [x] T054 Update PortfolioModal (src/components/ui/PortfolioModal.tsx):
+  - Modal title: Cyan-400, uppercase, primary glow
+  - Category badge: Cyan background with neon border
+  - Section headings: Cyan-400, uppercase, subtitle glow
+  - Description text: Cyan-300/70 with subtle glow
+  - Technology tags: Cyan borders and backgrounds
+  - Outcome cards: Cyan text with glowing values
+  - Featured badge: Cyan with neon border and box-shadow
+
+- [x] T055 Update ContactForm (src/components/forms/ContactForm.tsx):
+  - Form labels: Cyan-300, uppercase, subtle glow
+  - Success message heading: Cyan-400, uppercase, primary glow
+  - Success message text: Cyan-300/80 with glow
+
+### Documentation
+
+- [x] T056 [P] Create comprehensive design system documentation:
+  - Create specs/005-hero-carousel/design-system.md
+  - Document color palette (cyan primary, magenta/purple accents)
+  - Define typography hierarchy with glow levels
+  - Document all text-shadow patterns (primary, subtitle, subtle)
+  - Document all box-shadow patterns (card, button, hover)
+  - Create component-specific guidelines
+  - Add utility class reference
+  - Include accessibility considerations
+  - Add responsive behavior guidelines
+  - Document performance optimization strategies
+
+- [x] T057 [P] Update spec.md with site-wide extension:
+  - Add "Post-Implementation: Site-Wide Design Extension" section
+  - Document all updated components
+  - List all modified files
+  - Explain technical implementation
+  - Document success metrics
+  - Add maintenance guidelines
+
+- [x] T058 [P] Update quickstart.md with neon styling guide:
+  - Add "Neon Cyberpunk Styling Guide" section
+  - Provide copy-paste patterns for common elements
+  - Add color reference table
+  - Document when to use each glow level
+  - Link to complete design system
+
+**Checkpoint**: Site-wide neon cyberpunk styling complete - unified brand identity achieved
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies

@@ -14,6 +14,7 @@ import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useCarousel } from '@/hooks/useCarousel';
 import { CarouselSlide } from '@/components/ui/CarouselSlide';
+import { CarouselNavigation } from '@/components/ui/CarouselNavigation';
 import type { HeroCarouselProps } from '@/types/carousel';
 
 /**
@@ -55,6 +56,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
     resume,
     goToNext,
     goToPrevious,
+    goToSlide, // For navigation tabs
   } = useCarousel({ slides, config });
 
   /**
@@ -121,37 +123,48 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
   };
 
   return (
-    <div
-      className={`relative w-full h-full overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset ${className}`}
-      onPointerEnter={handlePointerEnter}
-      onPointerLeave={handlePointerLeave}
-      onKeyDown={handleKeyDown}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      tabIndex={0}
-      role="region"
-      aria-label={`Hero carousel with ${totalSlides} slides`}
-      aria-live="polite"
-    >
-      {/* Carousel slide container with AnimatePresence for cross-fade */}
-      <div className="relative w-full h-full">
-        <AnimatePresence mode="sync" initial={false}>
-          <CarouselSlide key={currentSlide.id} slide={currentSlide} />
-        </AnimatePresence>
-      </div>
-
-      {/* Screen reader announcement for current slide */}
-      <div className="sr-only" aria-live="polite" aria-atomic="true">
-        Slide {currentIndex + 1} of {totalSlides}: {currentSlide.headline}
-        {currentSlide.subtitle && ` - ${currentSlide.subtitle}`}
-      </div>
-
-      {/* Graceful degradation indicator (FR-023) */}
-      {totalSlides < 3 && (
-        <div className="sr-only">
-          Carousel auto-play is disabled (fewer than 3 slides)
+    <div className="w-full h-full flex flex-col">
+      {/* Main carousel container - 70% of hero section (70% of (100vh - 80px)) */}
+      <div
+        className={`relative w-full overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset ${className}`}
+        style={{ height: 'calc(70vh - 56px)' }}
+        onPointerEnter={handlePointerEnter}
+        onPointerLeave={handlePointerLeave}
+        onKeyDown={handleKeyDown}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        tabIndex={0}
+        role="region"
+        aria-label={`Hero carousel with ${totalSlides} slides`}
+        aria-live="polite"
+      >
+        {/* Carousel slide container with AnimatePresence for cross-fade */}
+        <div className="relative w-full h-full">
+          <AnimatePresence mode="sync" initial={false}>
+            <CarouselSlide key={currentSlide.id} slide={currentSlide} />
+          </AnimatePresence>
         </div>
-      )}
+
+        {/* Screen reader announcement for current slide */}
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          Slide {currentIndex + 1} of {totalSlides}: {currentSlide.headline}
+          {currentSlide.subtitle && ` - ${currentSlide.subtitle}`}
+        </div>
+
+        {/* Graceful degradation indicator (FR-023) */}
+        {totalSlides < 3 && (
+          <div className="sr-only">
+            Carousel auto-play is disabled (fewer than 3 slides)
+          </div>
+        )}
+      </div>
+
+      {/* Bottom navigation tabs - Fixed height */}
+      <CarouselNavigation
+        slides={slides}
+        activeIndex={currentIndex}
+        onNavigate={goToSlide}
+      />
     </div>
   );
 };

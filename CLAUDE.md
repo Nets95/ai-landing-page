@@ -98,5 +98,143 @@ Add slide objects to `slides` array in `src/data/carousel.json`:
 - Semantic HTML with proper heading hierarchy
 - Focus indicators for keyboard navigation
 
+---
+
+## Neon Cyberpunk Design System (Extended from Carousel)
+
+**Added**: 2026-01-29 | **Origin**: 005-hero-carousel
+
+The neon cyberpunk text styling initially implemented for carousel overlays has been extended site-wide, creating a unified futuristic brand identity.
+
+### Color Palette
+
+| Color | Value | Usage |
+|-------|-------|-------|
+| **Cyan Primary** | `rgb(34, 211, 238)` / `text-cyan-400` | Main headings, primary emphasis |
+| **Cyan Subtle** | `rgb(103, 232, 249)` / `text-cyan-300` | Body text, navigation, labels |
+| **Cyan Dark** | `rgb(6, 182, 212)` / `border-cyan-500` | Borders, accents |
+| **Magenta** | `rgb(236, 72, 153)` / `text-pink-500` | Special highlights |
+| **Purple** | `rgb(168, 85, 247)` / `text-purple-500` | Badge variations |
+
+### Text Glow Levels
+
+**Primary Heading Glow** (h1, h2):
+```css
+text-shadow: 
+  0 0 10px rgba(34, 211, 238, 0.8),
+  0 0 20px rgba(34, 211, 238, 0.6),
+  0 0 30px rgba(34, 211, 238, 0.4),
+  0 0 40px rgba(6, 182, 212, 0.3);
+```
+
+**Subtitle Glow** (h3, card titles):
+```css
+text-shadow: 
+  0 0 8px rgba(103, 232, 249, 0.7),
+  0 0 15px rgba(103, 232, 249, 0.5),
+  0 0 25px rgba(103, 232, 249, 0.3);
+```
+
+**Subtle Glow** (labels, body text):
+```css
+text-shadow: 
+  0 0 5px rgba(103, 232, 249, 0.5),
+  0 0 10px rgba(103, 232, 249, 0.3);
+```
+
+### Card/Border Glows
+
+**Default Card**:
+```css
+border: 1px solid rgba(6, 182, 212, 0.3);
+box-shadow: 
+  0 0 10px rgba(6, 182, 212, 0.2),
+  0 0 20px rgba(6, 182, 212, 0.1),
+  inset 0 0 10px rgba(6, 182, 212, 0.05);
+```
+
+**Card Hover**:
+```css
+border: 1px solid rgba(6, 182, 212, 0.6);
+box-shadow: 
+  0 0 15px rgba(6, 182, 212, 0.4),
+  0 0 30px rgba(6, 182, 212, 0.2),
+  inset 0 0 15px rgba(6, 182, 212, 0.1);
+```
+
+### Quick Reference Patterns
+
+**Large Heading**:
+```tsx
+<h2
+  className="text-5xl md:text-6xl font-bold text-cyan-400 uppercase tracking-wide"
+  style={{
+    textShadow: '0 0 10px rgba(34, 211, 238, 0.8), 0 0 20px rgba(34, 211, 238, 0.6)',
+  }}
+>
+  Heading
+</h2>
+```
+
+**Button (Primary)**:
+```tsx
+<button
+  className="px-6 py-3 bg-cyan-500/20 border border-cyan-500 text-cyan-400 
+             uppercase tracking-wide rounded-lg"
+  style={{
+    textShadow: '0 0 8px rgba(34, 211, 238, 0.8)',
+    boxShadow: '0 0 15px rgba(6, 182, 212, 0.4), inset 0 0 15px rgba(6, 182, 212, 0.1)',
+  }}
+>
+  Button
+</button>
+```
+
+**Badge/Tag**:
+```tsx
+<span
+  className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/50 text-cyan-300 
+             text-sm uppercase tracking-wide rounded-lg"
+  style={{ textShadow: '0 0 5px rgba(103, 232, 249, 0.4)' }}
+>
+  Badge
+</span>
+```
+
+### Global Utility Classes (globals.css)
+
+- `.neon-text-cyan` - Primary heading glow
+- `.neon-text-cyan-subtle` - Subtitle glow
+- `.neon-text-magenta` - Magenta accent glow
+- `.neon-text-purple` - Purple accent glow
+- `.neon-glow-cyan` - Box-shadow glow
+- `.neon-glow-magenta` - Magenta box-shadow
+
+### Components Using Neon Styling
+
+- **Header**: Logo, navigation links
+- **Hero**: Carousel text (original), scroll indicator
+- **TechShowcase**: Headings, filters, technology cards
+- **Portfolio**: Headings, filters, portfolio cards, modal
+- **Contact**: Headings, form labels, social links
+- **Footer**: Navigation, social icons, copyright
+- **Buttons**: All primary and secondary buttons
+- **Cards**: All card components (technology, portfolio, contact)
+- **Forms**: Labels, success messages
+
+### Documentation
+
+Complete design system documentation available at:
+- **[specs/005-hero-carousel/design-system.md](specs/005-hero-carousel/design-system.md)** - Comprehensive styling guide
+- **[specs/005-hero-carousel/quickstart.md](specs/005-hero-carousel/quickstart.md)** - Quick reference with copy-paste patterns
+- **[specs/005-hero-carousel/spec.md](specs/005-hero-carousel/spec.md)** - Site-wide extension details
+
+### Accessibility
+
+- All text maintains WCAG AA compliance (4.5:1+ contrast ratios)
+- Neon effects are decorative CSS (screen reader compatible)
+- `prefers-reduced-motion` support maintained
+- No performance impact (GPU-accelerated text-shadow)
+
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->

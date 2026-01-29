@@ -469,6 +469,136 @@ useEffect(() => {
 
 ---
 
+---
+
+## Neon Cyberpunk Styling Guide
+
+**Added**: 2026-01-29
+
+The carousel's neon cyberpunk text styling has been extended site-wide. This section provides quick reference for applying consistent styling to new components.
+
+### Quick Copy-Paste Patterns
+
+#### Large Heading (h1, h2)
+```tsx
+<h2
+  className="text-5xl md:text-6xl lg:text-7xl font-bold text-cyan-400 tracking-wide uppercase"
+  style={{
+    textShadow: `
+      0 0 10px rgba(34, 211, 238, 0.8),
+      0 0 20px rgba(34, 211, 238, 0.6),
+      0 0 30px rgba(34, 211, 238, 0.4),
+      0 0 40px rgba(6, 182, 212, 0.3)
+    `,
+  }}
+>
+  Your Heading Here
+</h2>
+```
+
+#### Subtitle/Description
+```tsx
+<p
+  className="text-lg md:text-xl text-cyan-300/90 tracking-wide"
+  style={{
+    textShadow: `
+      0 0 5px rgba(103, 232, 249, 0.5),
+      0 0 10px rgba(103, 232, 249, 0.3)
+    `,
+  }}
+>
+  Your description text here
+</p>
+```
+
+#### Button (Primary)
+```tsx
+<button
+  className="px-6 py-3 bg-cyan-500/20 border border-cyan-500 text-cyan-400 
+             rounded-lg uppercase tracking-wide font-semibold transition-all"
+  style={{
+    textShadow: '0 0 8px rgba(34, 211, 238, 0.8)',
+    boxShadow: `
+      0 0 15px rgba(6, 182, 212, 0.4),
+      0 0 30px rgba(6, 182, 212, 0.2),
+      inset 0 0 15px rgba(6, 182, 212, 0.1)
+    `,
+  }}
+>
+  Button Text
+</button>
+```
+
+#### Card Border with Glow
+```tsx
+<div
+  className="p-6 rounded-xl bg-bg-surface/60 backdrop-blur-sm"
+  style={{
+    border: '1px solid rgba(6, 182, 212, 0.3)',
+    boxShadow: `
+      0 0 10px rgba(6, 182, 212, 0.2),
+      0 0 20px rgba(6, 182, 212, 0.1),
+      inset 0 0 10px rgba(6, 182, 212, 0.05)
+    `,
+  }}
+>
+  Card content
+</div>
+```
+
+#### Badge/Tag
+```tsx
+<span
+  className="px-3 py-1 rounded-lg bg-cyan-500/10 text-cyan-300 
+             border border-cyan-500/50 text-sm uppercase tracking-wide"
+  style={{
+    textShadow: '0 0 5px rgba(103, 232, 249, 0.4)',
+  }}
+>
+  Badge Text
+</span>
+```
+
+### Global Utility Classes
+
+Use these classes defined in `globals.css`:
+
+```tsx
+// Neon text classes
+<h1 className="neon-text-cyan">Primary Heading</h1>
+<p className="neon-text-cyan-subtle">Subtitle Text</p>
+<span className="neon-text-magenta">Accent Text</span>
+
+// Neon glow on boxes
+<div className="neon-glow-cyan">Glowing box</div>
+```
+
+### Color Reference
+
+| Color | Value | Usage |
+|-------|-------|-------|
+| `text-cyan-400` | `rgb(34, 211, 238)` | Main headings |
+| `text-cyan-300` | `rgb(103, 232, 249)` | Body text |
+| `text-cyan-300/90` | 90% opacity cyan-300 | Subtitles |
+| `text-cyan-300/70` | 70% opacity cyan-300 | Body paragraphs |
+| `text-cyan-300/60` | 60% opacity cyan-300 | Meta text |
+| `border-cyan-500` | `rgb(6, 182, 212)` | Borders |
+| `bg-cyan-500/20` | 20% opacity cyan-500 | Button backgrounds |
+
+### When to Use Each Glow
+
+- **Primary Glow** (6-layer): Page/section titles, hero text
+- **Subtitle Glow** (4-layer): Subheadings, card titles, prominent labels  
+- **Subtle Glow** (2-layer): Navigation, badges, small text, body text
+
+### Complete Design System
+
+For comprehensive styling guidelines, color palette, typography hierarchy, and component patterns, see:
+
+**[Design System Documentation](./design-system.md)**
+
+---
+
 ## Related Documentation
 
 - [Implementation Plan](./plan.md) - Overall technical approach
@@ -476,6 +606,7 @@ useEffect(() => {
 - [Research Document](./research.md) - Technology decisions and best practices
 - [TypeScript Contracts](./contracts/carousel.types.ts) - Interface definitions
 - [Feature Specification](./spec.md) - User stories and requirements
+- **[Design System](./design-system.md)** - Neon cyberpunk styling guide (NEW)
 
 ---
 
@@ -487,6 +618,7 @@ useEffect(() => {
 - **Next.js Image Optimization**: [nextjs.org/docs/basic-features/image-optimization](https://nextjs.org/docs/basic-features/image-optimization)
 - **WCAG Guidelines**: [w3.org/WAI/WCAG21/quickref/](https://www.w3.org/WAI/WCAG21/quickref/)
 - **Core Web Vitals**: [web.dev/vitals/](https://web.dev/vitals/)
+- **CSS text-shadow**: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow)
 
 ### Common Questions
 
@@ -504,3 +636,9 @@ A: Not recommended for hero carousel (above-the-fold content). First slide uses 
 
 **Q: Can I change the animation direction (left-to-right instead of cross-fade)?**
 A: Yes, modify Framer Motion variants in `src/lib/carousel-animations.ts`. Cross-fade is current design decision (per research.md).
+
+**Q: How do I apply neon styling to new components?**
+A: Use the copy-paste patterns in the "Neon Cyberpunk Styling Guide" section above, or reference [design-system.md](./design-system.md) for complete guidelines.
+
+**Q: Can I customize the neon color scheme?**
+A: Yes, but maintain consistency. See design-system.md for alternative accent colors (magenta, purple). Primary cyan should remain dominant for brand identity.
